@@ -47,14 +47,36 @@ namespace CaAPA.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int custom_theme_color = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int text_theme_color = 2131034113;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int icon = 2130837504;
+			public const int altbeacon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int monkeyicon = 2130837505;
+			public const int icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int monkeyicon = 2130837506;
 			
 			static Drawable()
 			{
@@ -66,11 +88,54 @@ namespace CaAPA.Droid
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f070005
+			public const int backgroundButton = 2131165189;
+			
+			// aapt resource value: 0x7f070002
+			public const int beaconDistance = 2131165186;
+			
+			// aapt resource value: 0x7f070001
+			public const int beaconId = 2131165185;
+			
+			// aapt resource value: 0x7f070003
+			public const int layout = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int list = 2131165188;
+			
+			// aapt resource value: 0x7f070006
+			public const int startButton = 2131165190;
+			
+			// aapt resource value: 0x7f070007
+			public const int stopButton = 2131165191;
+			
+			// aapt resource value: 0x7f070000
+			public const int textView1 = 2131165184;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int asdfasd = 2130903040;
+			public const int ActivityBackground = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int ListItem = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Main = 2130903042;
 			
 			static Layout()
 			{
@@ -91,12 +156,40 @@ namespace CaAPA.Droid
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
 			
+			// aapt resource value: 0x7f040003
+			public const int app_name = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int hello = 2130968578;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f060002
+			public const int CustomActionBar = 2131099650;
+			
+			// aapt resource value: 0x7f060000
+			public const int CustomTheme = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int Theme_AltBeacon = 2131099649;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

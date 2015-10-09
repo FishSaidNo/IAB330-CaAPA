@@ -1,4 +1,4 @@
-﻿using System;	
+﻿using System;
 using GalaSoft.MvvmLight;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -16,7 +16,8 @@ namespace CaAPA.Data
 		public String ReminderTitle
 		{
 			get { return reminderTitle; }
-			set { reminderTitle = value; }
+			set { reminderTitle = value;
+				RaisePropertyChanged (() => ReminderTitle);}
 		}
 
 		private string reminderDetail;
@@ -24,7 +25,8 @@ namespace CaAPA.Data
 		public string ReminderDetail
 		{
 			get { return reminderDetail; }
-			set { reminderDetail = value; }
+			set { reminderDetail = value;
+				RaisePropertyChanged (() => ReminderDetail);}
 		}
 
 		private bool reminderActionFlag;
@@ -32,15 +34,22 @@ namespace CaAPA.Data
 		public bool ReminderActionFlag
 		{
 			get { return reminderActionFlag; }
-			set { reminderActionFlag = value; }
+			set { reminderActionFlag = value;
+				RaisePropertyChanged (() => ReminderActionFlag);}
 		}
 
 		public ReminderEntryViewModel (IMyNavigationService navigationService)
 		{
-			SaveReminderCommand = new Command (() => {
-				var reminderHomeViewModel = ServiceLocator.Current.GetInstance<RemindersHomeViewModel>();
+//			SaveReminderCommand = new Command (() => {
+//				var reminderHomeViewModel = ServiceLocator.Current.GetInstance<RemindersHomeViewModel>();
+//
+//				reminderHomeViewModel.ReminderList.Add(new Note(ReminderTitle, DateTime.Now.ToString(),ReminderActionFlag.ToString(),ReminderDetail));
+//				navigationService.GoBack();
+//			});
 
-				reminderHomeViewModel.ReminderList.Add(new Note(ReminderTitle, DateTime.Now.ToString(),ReminderActionFlag.ToString(),ReminderDetail));
+			var database = new NoteDatabase ();
+			SaveReminderCommand = new Command (() => {
+				database.InsertOrUpdateNote(new Note(ReminderTitle, DateTime.Now, ReminderActionFlag,ReminderDetail));
 				navigationService.GoBack();
 			});
 		}
