@@ -32,6 +32,7 @@ namespace CaAPA
 			nav = new NavigationService ();
 			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
 			nav.Configure(ViewModelLocator.RemindersHomePageKey, typeof(RemindersHomePage));
+			nav.Configure(ViewModelLocator.ReminderEntryPageKey, typeof(ReminderEntryPage));
             nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(PromptingHomePage));
 			nav.Configure(ViewModelLocator.MappingHomePageKey, typeof(MappingHomePage));
 			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));

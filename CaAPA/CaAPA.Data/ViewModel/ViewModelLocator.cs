@@ -27,6 +27,7 @@ namespace CaAPA.Data.ViewModel
 		public const string NoteListPageKey = "NoteListPage";
 		//public const string NoteDetailPageKey = "NoteDetailPage";
 		public const string RemindersHomePageKey = "RemindersPage";
+		public const string ReminderEntryPageKey = "ReminderEntryPage";
 		public const string PromptingHomePageKey = "PromptingHomePage";
 		public const string MappingHomePageKey = "MappingHomePage";
 		public const string SettingsHomePageKey = "SettingsHomePage";
@@ -70,6 +71,13 @@ namespace CaAPA.Data.ViewModel
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
+
+			SimpleIoc.Default.Register<ReminderEntryViewModel>(() =>
+				{
+					return new ReminderEntryViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
 
 			SimpleIoc.Default.Register<PromptingHomeViewModel>(() =>
 			{
@@ -120,6 +128,14 @@ namespace CaAPA.Data.ViewModel
 			get
 			{
 				return ServiceLocator.Current.GetInstance<RemindersHomeViewModel>();
+			}
+		}
+
+		public ReminderEntryViewModel ReminderEntry
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ReminderEntryViewModel>();
 			}
 		}
 		public PromptingHomeViewModel PromptingHome
