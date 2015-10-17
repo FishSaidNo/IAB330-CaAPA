@@ -101,10 +101,10 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database\SqliteDroid.cs" />
-    <Compile Include="BackgroundActivity.cs" />
-    <Compile Include="BeaconReferenceApplication.cs" />
-    <Compile Include="MonitorEventArgs.cs" />
     <Compile Include="RangeNotifier.cs" />
+    <Compile Include="Services\AltBeaconService.cs" />
+    <Compile Include="MonitorNotifier.cs" />
+    <Compile Include="BeaconSimulator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\values\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -124,7 +125,6 @@
     <AndroidResource Include="Resources\layout\ActivityBackground.axml" />
     <AndroidResource Include="Resources\layout\ListItem.axml" />
     <AndroidResource Include="Resources\drawable\altbeacon.png" />
-    <AndroidResource Include="Resources\values\Style.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>

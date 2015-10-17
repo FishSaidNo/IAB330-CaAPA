@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
-using CaAPA.Data.ViewModel;
+using System.Collections.ObjectModel;
 using CaAPA.Data;
 
 namespace CaAPA
 {
-	public class PromptingHomePage : BaseView
+	public class PromptingHomePage : ContentPage
 	{
 		ListView _list;
 		BeaconViewModel _viewModel;

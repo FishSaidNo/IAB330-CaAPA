@@ -47,6 +47,10 @@
     <Compile Include="Interfaces\ISqlite.cs" />
     <Compile Include="Database\NoteDatabase.cs" />
     <Compile Include="ViewModel\ReminderEntryViewModel.cs" />
+    <Compile Include="ViewModel\BeaconViewModel.cs" />
+    <Compile Include="ViewModel\ListChangedEventArgs.cs" />
+    <Compile Include="Models\SharedBeacon.cs" />
+    <Compile Include="Interfaces\IAltBeaconService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
