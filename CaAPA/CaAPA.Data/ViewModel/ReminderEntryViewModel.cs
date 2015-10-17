@@ -48,10 +48,10 @@ namespace CaAPA.Data
 //			});
 
 			var database = new NoteDatabase ();
-			SaveReminderCommand = new Command (() => {
-				database.InsertOrUpdateNote(new Note(ReminderTitle, DateTime.Now, ReminderActionFlag,ReminderDetail));
-				navigationService.GoBack();
-			});
+//			SaveReminderCommand = new Command (() => {
+//				database.InsertOrUpdateNote(new Note(ReminderTitle, DateTime.Now, ReminderActionFlag,ReminderDetail));
+//				navigationService.GoBack();
+//			});
 		}
 	}
 }

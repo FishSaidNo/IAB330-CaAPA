@@ -5,11 +5,9 @@ using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
 
-using Xamarin.Forms;
-
 namespace CaAPA
 {
-	public partial class PromptingHomePage : BaseView
+	public class PromptingHomePage : BaseView
 	{
 		ListView _list;
 		BeaconViewModel _viewModel;
@@ -17,7 +15,7 @@ namespace CaAPA
 		public PromptingHomePage()
 		{
 			BackgroundColor = Color.White;
-			Title = "Prompting";
+			Title = "Prompts";
 
 			_viewModel = new BeaconViewModel();
 			_viewModel.ListChanged += (sender, e) => 
@@ -49,3 +47,4 @@ namespace CaAPA
 		}
 	}
 }
+

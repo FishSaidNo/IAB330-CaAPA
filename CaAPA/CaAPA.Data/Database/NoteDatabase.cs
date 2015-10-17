@@ -11,10 +11,10 @@ namespace CaAPA.Data
 {
 	public class NoteDatabase
 	{
-		public static MobileServiceClient MobileService = new MobileServiceClient(
-			"https://caapa.azure-mobile.net/",
-			"coHzRHuoqnHiolDACEHMunJRIeEJUH21"
-		);
+//		public static MobileServiceClient MobileService = new MobileServiceClient(
+//			"https://caapa.azure-mobile.net/",
+//			"coHzRHuoqnHiolDACEHMunJRIeEJUH21"
+//		);
 
 		SQLiteConnection database;
 		public NoteDatabase ()
@@ -39,18 +39,18 @@ namespace CaAPA.Data
 //				? database.Update (note) : database.Insert (note);
 //		}
 
-		public async Task<int> InsertOrUpdateNote(Note note){
-			//			return database.Table<Note> ().Where (x => x.NoteId == note.NoteId).Any () 
-			//				? database.Update (note) : database.Insert (note);
-			var lookup = await MobileService.GetTable<Note> ().LookupAsync (note.id);
-			if (lookup != null) {
-				await MobileService.GetTable<Note> ().InsertAsync (note);
-			} else {
-				await MobileService.GetTable<Note> ().UpdateAsync (note);
-			}
-			return 1;
-
-		}
+//		public async Task<int> InsertOrUpdateNote(Note note){
+//			//			return database.Table<Note> ().Where (x => x.NoteId == note.NoteId).Any () 
+//			//				? database.Update (note) : database.Insert (note);
+//			var lookup = await MobileService.GetTable<Note> ().LookupAsync (note.id);
+//			if (lookup != null) {
+//				await MobileService.GetTable<Note> ().InsertAsync (note);
+//			} else {
+//				await MobileService.GetTable<Note> ().UpdateAsync (note);
+//			}
+//			return 1;
+//
+//		}
 
 		public Note GetNote(string key){
 			return database.Table<Note> ().First (t => t.titleText == key); 
