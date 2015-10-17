@@ -18,6 +18,11 @@ namespace CaAPA
 			Icon = "monkeyicon.png";
 		}
 
+		protected void ButtonClicked(object sender, EventArgs e)
+		{
+			Navigation.PushAsync (new ReminderEntryPage ());
+		}
+
 		protected override void OnAppearing()
 		{
 			//NavigationPage.SetHasBackButton(this, false);

@@ -4,11 +4,18 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Ioc;
+using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace CaAPA.Data
 {
 	public class NoteDatabase
 	{
+		public static MobileServiceClient MobileService = new MobileServiceClient(
+			"https://caapa.azure-mobile.net/",
+			"coHzRHuoqnHiolDACEHMunJRIeEJUH21"
+		);
+
 		SQLiteConnection database;
 		public NoteDatabase ()
 		{
@@ -27,9 +34,22 @@ namespace CaAPA.Data
 			return items;
 		}
 
-		public int InsertOrUpdateNote(Note note){
-			return database.Table<Note> ().Where (x => x.titleText == note.titleText).Count () > 0 
-				? database.Update (note) : database.Insert (note);
+//		public int InsertOrUpdateNote(Note note){
+//			return database.Table<Note> ().Where (x => x.titleText == note.titleText).Count () > 0 
+//				? database.Update (note) : database.Insert (note);
+//		}
+
+		public async Task<int> InsertOrUpdateNote(Note note){
+			//			return database.Table<Note> ().Where (x => x.NoteId == note.NoteId).Any () 
+			//				? database.Update (note) : database.Insert (note);
+			var lookup = await MobileService.GetTable<Note> ().LookupAsync (note.id);
+			if (lookup != null) {
+				await MobileService.GetTable<Note> ().InsertAsync (note);
+			} else {
+				await MobileService.GetTable<Note> ().UpdateAsync (note);
+			}
+			return 1;
+
 		}
 
 		public Note GetNote(string key){

@@ -1,28 +1,34 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.Generic;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
-using CaAPA.Data.ViewModel;
-using Microsoft.Practices.ServiceLocation;
-using CaAPA;
-using System.Diagnostics;
+using System.Collections.ObjectModel;
 
-namespace CaAPA.Data
+namespace CaAPA.Data.ViewModel
 {
 	public class RemindersHomeViewModel : ViewModelBase
 	{
-		public ICommand DemoButtonCommand { get; private set; }
+		private IMyNavigationService navigationService;
 
-		public RemindersHomeViewModel(IMyNavigationService navigationService)
-		{
-
-			DemoButtonCommand = new Command(() => {
-				//Do something e.g:
-				//navigationService.GoBack();
-				
-			});
-
+		public ObservableCollection<Note> ReminderList {
+			get {
+				var database = new NoteDatabase ();
+				var x = database.GetAll ();
+				return new ObservableCollection<Note> (x);
+			}
 		}
 
+		public ICommand NewReminderCommand { get; private set; }
+		public RemindersHomeViewModel(IMyNavigationService navigationService)
+		{
+			this.navigationService = navigationService;
+
+			NewReminderCommand = new Command (() => this.navigationService.NavigateTo (ViewModelLocator.ReminderEntryPageKey));
+		}
+
+		public void OnAppearing(){
+			RaisePropertyChanged (() => ReminderList);
+		}
 	}
 }
