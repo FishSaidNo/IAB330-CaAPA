@@ -1,0 +1,8 @@
+#
+# Download this file to 'CampaignKit.properties' in the root of your project's Java source folder
+#
+CKAPIToken=a0cd8785cb33ea4d848a9dd2aab2314469e8aed83c0f5331204c962a596766a3
+CKKitURL=https://campaignkit.radiusnetworks.com/sdk/v1/kits/790
+PKAPIToken=07881a907fc7fd332eb3edf14c0f62c9e148bea465fb33de5de8c8c0d9a809d1
+PKKitURL=https://proximitykit.radiusnetworks.com/api/kits/6827
+PKAnalyticsURL=https://analytics.radiusnetworks.com/sdk/v1/events

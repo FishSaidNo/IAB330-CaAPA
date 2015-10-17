@@ -56,10 +56,10 @@ namespace CaAPA.Droid
 			BeaconManager bm = BeaconManager.GetInstanceForApplication(Xamarin.Forms.Forms.Context);
 
 			#region Set up Beacon Simulator if testing without a BLE device
-			//			var beaconSimulator = new BeaconSimulator();
-			//			beaconSimulator.CreateBasicSimulatedBeacons();
-			//
-			//			BeaconManager.BeaconSimulator = beaconSimulator;
+//			var beaconSimulator = new BeaconSimulator();
+//			beaconSimulator.CreateBasicSimulatedBeacons();
+//
+//			BeaconManager.BeaconSimulator = beaconSimulator;
 			#endregion
 
 			var iBeaconParser = new BeaconParser();

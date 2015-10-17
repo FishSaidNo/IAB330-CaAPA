@@ -84,6 +84,9 @@
     <Reference Include="AndroidAltBeaconLibrary">
       <HintPath>..\packages\AndroidAltBeaconLibrary.2.1.4\lib\AndroidAltBeaconLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Estimote.Android">
+      <HintPath>..\packages\Xamarin.Estimote.Android.0.9.1.0\lib\MonoAndroid43\Xamarin.Estimote.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CaAPA\CaAPA.csproj">
@@ -111,19 +114,18 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="packages.config" />
+    <None Include="CampaignKit.properties.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\values\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\layout\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\layout\Main.axml" />
-    <AndroidResource Include="Resources\layout\ActivityBackground.axml" />
-    <AndroidResource Include="Resources\layout\ListItem.axml" />
     <AndroidResource Include="Resources\drawable\altbeacon.png" />
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
