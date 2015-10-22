@@ -29,20 +29,19 @@ namespace CaAPA
 
 		public Page GetMainPage()
 		{
-			return new PromptingHomePage ();
-//			nav = new NavigationService ();
-//			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
-//			nav.Configure(ViewModelLocator.RemindersHomePageKey, typeof(RemindersHomePage));
-//			nav.Configure(ViewModelLocator.ReminderEntryPageKey, typeof(ReminderEntryPage));
-//            nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(PromptingHomePage));
-//			nav.Configure(ViewModelLocator.MappingHomePageKey, typeof(MappingHomePage));
-//			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));
-//			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
-//
-//			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
-//			var navPage = new NavigationPage(new TabbedHomePage());
-//			nav.Initialize(navPage);
-//			return navPage;
+			nav = new NavigationService ();
+			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
+			nav.Configure(ViewModelLocator.RemindersHomePageKey, typeof(RemindersHomePage));
+			nav.Configure(ViewModelLocator.ReminderEntryPageKey, typeof(ReminderEntryPage));
+            nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(PromptingHomePage));
+			nav.Configure(ViewModelLocator.MappingHomePageKey, typeof(MappingHomePage));
+			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));
+			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
+
+			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
+			var navPage = new NavigationPage(new TabbedHomePage());
+			nav.Initialize(navPage);
+			return navPage;
 		}
 		protected override void OnStart ()
 		{

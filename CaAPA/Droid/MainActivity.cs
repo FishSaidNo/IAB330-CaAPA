@@ -28,9 +28,9 @@ namespace CaAPA.Droid
 		public void OnBeaconServiceConnect()
 		{
 			var beaconService = Xamarin.Forms.DependencyService.Get<IAltBeaconService>();
-
 			beaconService.StartMonitoring();
 			beaconService.StartRanging();
+
 		}
 		#endregion
 	}

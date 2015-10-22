@@ -1,0 +1,9 @@
+#
+# Download this file to 'ProximityKit.properties' in the root of your project's Java source folder
+#
+PKKitName=test
+PKUserIdentifier=7116
+PKUserEmail=joncromie@gmail.com
+PKGlobalUserIdentifier=10032
+PKAPIToken=ce007a1ec2fe0d6ff402f2116888518552e2fd1a1c368f99cc9dcd5db761ec2d
+PKKitURL=https://proximitykit.radiusnetworks.com/api/kits/6828
