@@ -35,7 +35,7 @@ namespace CaAPA
 
 			_list.SetBinding(ListView.ItemsSourceProperty, "Data");
 
-			_list.IsPullToRefreshEnabled = true;
+//			_list.IsPullToRefreshEnabled = true;
 //			_list.Refreshing += OnRefresh;
 			_list.ItemSelected += OnSelection;
 			_list.ItemTapped += OnTap;

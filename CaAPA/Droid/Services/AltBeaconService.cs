@@ -74,10 +74,11 @@ namespace CaAPA.Droid
 			_monitorNotifier.DetermineStateForRegionComplete += DeterminedStateForRegionComplete;
 			_rangeNotifier.DidRangeBeaconsInRegionComplete += RangingBeaconsInRegion;
 
-			region1 = new AltBeaconOrg.BoundBeacon.Region("myUniqueBeaconId1", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
-			region2 = new AltBeaconOrg.BoundBeacon.Region("myUniqueBeaconId2", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
-			region3 = new AltBeaconOrg.BoundBeacon.Region("myUniqueBeaconId3", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
-			region4 = new AltBeaconOrg.BoundBeacon.Region("myUniqueBeaconId4", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
+//			region1 = new AltBeaconOrg.BoundBeacon.Region("myUniqueBeaconId1", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
+			region1 = new AltBeaconOrg.BoundBeacon.Region ("myUniqueBeaconId1", Identifier.Parse ("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
+//			region2 = new AltBeaconOrg.BoundBeacon.Region ("Prompt2", Identifier.Parse ("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
+//			region3 = new AltBeaconOrg.BoundBeacon.Region ("Prompt3", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
+//			region4 = new AltBeaconOrg.BoundBeacon.Region ("Prompt4", Identifier.Parse("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A"), null, null);
 			_emptyRegion = new AltBeaconOrg.BoundBeacon.Region("myEmptyBeaconId", null, null, null);
 
 			bm.SetBackgroundMode(false);
@@ -93,7 +94,7 @@ namespace CaAPA.Droid
 			BeaconManagerImpl.SetMonitorNotifier(_monitorNotifier); 
 //			_beaconManager.StartMonitoringBeaconsInRegion(_tagRegion);
 			_beaconManager.StartMonitoringBeaconsInRegion(region1);
-			_beaconManager.StartMonitoringBeaconsInRegion(region2);
+//			_beaconManager.StartMonitoringBeaconsInRegion(region2);
 //			_beaconManager.StartMonitoringBeaconsInRegion(region3);
 //			_beaconManager.StartMonitoringBeaconsInRegion(region4);
 			_beaconManager.StartMonitoringBeaconsInRegion(_emptyRegion);
@@ -106,7 +107,7 @@ namespace CaAPA.Droid
 			BeaconManagerImpl.SetRangeNotifier(_rangeNotifier);
 //			_beaconManager.StartRangingBeaconsInRegion(_tagRegion);
 			_beaconManager.StartRangingBeaconsInRegion(region1);
-			_beaconManager.StartRangingBeaconsInRegion(region2);
+//			_beaconManager.StartRangingBeaconsInRegion(region2);
 //			_beaconManager.StartRangingBeaconsInRegion(region3);
 //			_beaconManager.StartRangingBeaconsInRegion(region4);
 			_beaconManager.StartRangingBeaconsInRegion(_emptyRegion);
@@ -137,7 +138,6 @@ namespace CaAPA.Droid
 				foreach(var b in e.Beacons)
 				{
 					allBeacons.Add(b);
-					Console.WriteLine (b.ToString());
 				}
 
 				var orderedBeacons = allBeacons.OrderBy(b => b.Distance).ToList();
@@ -213,7 +213,8 @@ namespace CaAPA.Droid
 				var data = new List<SharedBeacon>();
 				_data.ForEach(b =>
 					{
-						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Distance = string.Format("{0:N2}m", b.Distance)});
+//						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Distance = string.Format("{0:N2}m", b.Distance)});
+						data.Add(new SharedBeacon { UUID = b.Id1.ToString(), Name = "Prompt 1", Description = "", Distance = string.Format("{0:N2}m", b.Distance)});
 					});
 				handler(this, new ListChangedEventArgs(data));
 			}

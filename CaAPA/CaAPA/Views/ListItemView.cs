@@ -27,7 +27,7 @@ namespace CaAPA
 				FontSize = 17
 			};
 
-			beaconId.SetBinding(Label.TextProperty, "Id");
+			beaconId.SetBinding(Label.TextProperty, "Name");
 
 			var beaconIdLayout = new StackLayout {
 				Orientation = StackOrientation.Horizontal,

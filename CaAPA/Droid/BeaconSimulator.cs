@@ -29,18 +29,18 @@ namespace CaAPA.Droid
 			if(!UseSimulatedBeacons) return;
 
 			var beacon1 = new AltBeacon.Builder().SetId1("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A")
-				.SetId2("1").SetId3("1").SetRssi(-45).SetTxPower(-45).Build();
+				.SetId2("1").SetId3("1").SetRssi(-55).SetTxPower(-55).Build();
 
 			var beacon2 = new AltBeacon.Builder().SetId1("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A")
-				.SetId2("2").SetId3("1").SetRssi(-50).SetTxPower(-50).Build();
+				.SetId2("1").SetId3("2").SetRssi(-55).SetTxPower(-55).Build();
 
 			var beacon3 = new AltBeacon.Builder().SetId1("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A")
-				.SetId2("3").SetId3("1").SetRssi(-55).SetTxPower(-55).Build();
+				.SetId2("1").SetId3("3").SetRssi(-55).SetTxPower(-55).Build();
 
 			var beacon4 = new AltBeacon.Builder().SetId1("DF7E1C79-43E9-44FF-886F-1D1F7DA6997A")
-				.SetId2("4").SetId3("1").SetRssi(-60).SetTxPower(-60).Build();
+				.SetId2("1").SetId3("4").SetRssi(-55).SetTxPower(-55).Build();
 
-			_beacons.AddRange(new [] { beacon1, beacon2, beacon3, beacon4 });
+			_beacons.AddRange(new [] { beacon1, beacon2 });
 		}
 	}
 }
