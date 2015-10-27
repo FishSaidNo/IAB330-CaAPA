@@ -30,12 +30,14 @@ namespace CaAPA
 		public Page GetMainPage()
 		{
 			nav = new NavigationService ();
+			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
 			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
 			nav.Configure(ViewModelLocator.RemindersHomePageKey, typeof(RemindersHomePage));
             nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(PromptingHomePage));
 			nav.Configure(ViewModelLocator.MappingHomePageKey, typeof(MappingHomePage));
 			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));
 			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
+			nav.Configure(ViewModelLocator.SamplePagePageKey, typeof(SamplePage));
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 			var navPage = new NavigationPage(new TabbedHomePage());

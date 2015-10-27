@@ -6,6 +6,7 @@
 			VerticalOptions="Center"
 			FontAttributes="Bold"
 			FontSize="Large"
+			TextColor="Black"
 		/>
 
 		<Button HorizontalOptions = "CenterAndExpand" Text="Demo Button" Command = "{Binding DemoButtonCommand}"/>

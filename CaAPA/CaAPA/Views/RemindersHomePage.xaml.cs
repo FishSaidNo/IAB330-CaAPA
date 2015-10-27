@@ -15,14 +15,14 @@ namespace CaAPA
 			InitializeComponent();
 			base.Init();
 			Title = "Reminders";
-			Icon = "monkeyicon.png";
+			BackgroundColor = Color.FromRgb(255, 255, 255);
 		}
 
 		protected override void OnAppearing()
 		{
-			//NavigationPage.SetHasBackButton(this, false);
-			NavigationPage.SetTitleIcon(this, "monkeyicon.png");
-			
+			//Add this to all pages to avoid annoying icon next to the back button
+			var noIcon = "transparent1x1.png";
+			NavigationPage.SetTitleIcon(this, noIcon);
 		}
 
 	}

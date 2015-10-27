@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.SamplePage">
+	<StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
+
+		<Label Text="This is a sample page :)"
+			VerticalOptions="Center"
+			FontAttributes="Bold"
+			FontSize="Large"
+			TextColor="Blue"
+		/>
+
+	</StackLayout>
+</BaseView>
