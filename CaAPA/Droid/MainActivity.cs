@@ -15,7 +15,8 @@ namespace CaAPA.Droid
 	[Activity (Label = "CaAPA", Icon = "@drawable/awareIcon2", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
-		protected override void OnCreate (Bundle bundle)
+        private Action<int, Result, Intent> _activityResultCallBack;
+        protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
@@ -25,6 +26,22 @@ namespace CaAPA.Droid
 			LoadApplication (new App ());
 
 		}
-	}
+        public void ConfigureActivityResultCallBack(Action<int, Result, Intent> callback)
+        {
+            if (callback == null)
+                throw new ArgumentNullException("callback");
+            _activityResultCallBack = callback;
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (_activityResultCallBack != null)
+            {
+                _activityResultCallBack.Invoke(requestCode, resultCode, data);
+                _activityResultCallBack = null;
+            }
+        }
+    }
 }
 

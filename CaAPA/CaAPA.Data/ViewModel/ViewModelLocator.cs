@@ -31,6 +31,8 @@ namespace CaAPA.Data.ViewModel
 		public const string MappingHomePageKey = "MappingHomePage";
 		public const string SettingsHomePageKey = "SettingsHomePage";
 		public const string SamplePagePageKey = "SamplePage";
+        public const string AddActivityPageKey = "AddActivityPage";
+        public const string ImagePickerPageKey = "ImagePickerPage";
 
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
@@ -96,7 +98,21 @@ namespace CaAPA.Data.ViewModel
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
-		}
+
+            SimpleIoc.Default.Register<AddActivityViewModel>(() =>
+            {
+                return new AddActivityViewModel(
+                    SimpleIoc.Default.GetInstance<IMyNavigationService>()
+                );
+            });
+
+            SimpleIoc.Default.Register<ImagePickerViewModel>(() =>
+            {
+                return new ImagePickerViewModel(
+                    SimpleIoc.Default.GetInstance<IMyNavigationService>()
+                );
+            });
+        }
 
 		public TabbedHomeViewModel TabbedHome
 		{
@@ -147,8 +163,23 @@ namespace CaAPA.Data.ViewModel
 				return ServiceLocator.Current.GetInstance<SamplePageViewModel>();
 			}
 		}
+        public AddActivityViewModel AddActivity
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AddActivityViewModel>();
+            }
+        }
 
-		public static void Cleanup()
+        public ImagePickerViewModel ImagePicker
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ImagePickerViewModel>();
+            }
+        }
+
+        public static void Cleanup()
         {
             // TODO Clear the ViewModels
         }

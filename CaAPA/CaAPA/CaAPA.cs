@@ -38,6 +38,8 @@ namespace CaAPA
 			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));
 			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
 			nav.Configure(ViewModelLocator.SamplePagePageKey, typeof(SamplePage));
+            nav.Configure(ViewModelLocator.AddActivityPageKey, typeof(AddActivityPage));
+            nav.Configure(ViewModelLocator.ImagePickerPageKey, typeof(ImagePickerPage));
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 			var navPage = new NavigationPage(new TabbedHomePage());
