@@ -12,7 +12,7 @@ using CaAPA.Data;
 
 namespace CaAPA.Droid
 {
-	[Activity (Label = "CaAPA", Icon = "@drawable/monkeyicon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "CaAPA", Icon = "@drawable/awareIcon2", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)

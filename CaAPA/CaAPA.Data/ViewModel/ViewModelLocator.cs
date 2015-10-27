@@ -24,15 +24,13 @@ namespace CaAPA.Data.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
+		public const string TabbedHomePageKey = "TabbedHomePage";
 		public const string NoteListPageKey = "NoteListPage";
-		//public const string NoteDetailPageKey = "NoteDetailPage";
 		public const string RemindersHomePageKey = "RemindersPage";
 		public const string PromptingHomePageKey = "PromptingHomePage";
 		public const string MappingHomePageKey = "MappingHomePage";
 		public const string SettingsHomePageKey = "SettingsHomePage";
-		public const string TabbedHomePageKey = "TabbedHomePage";
-
-
+		public const string SamplePagePageKey = "SamplePage";
 
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
@@ -41,29 +39,29 @@ namespace CaAPA.Data.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+			////if (ViewModelBase.IsInDesignModeStatic)
+			////{
+			////    // Create design time view services and models
+			////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
+			////}
+			////else
+			////{
+			////    // Create run time view services and models
+			////    SimpleIoc.Default.Register<IDataService, DataService>();
+			////}
 
+			SimpleIoc.Default.Register<TabbedHomeViewModel>(() =>
+			{
+				return new TabbedHomeViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
 			SimpleIoc.Default.Register<NoteListViewModel>(() => 
 				{
 					return new NoteListViewModel(
 						SimpleIoc.Default.GetInstance<IMyNavigationService>()
 					);
 				});
-			//SimpleIoc.Default.Register<NoteDetailViewModel>(() => 
-			//	{
-			//		return new NoteDetailViewModel(
-			//			SimpleIoc.Default.GetInstance<IMyNavigationService>()
-			//		);
-			//	});
 			SimpleIoc.Default.Register<RemindersHomeViewModel>(() =>
 			{
 				return new RemindersHomeViewModel(
@@ -92,29 +90,28 @@ namespace CaAPA.Data.ViewModel
 				);
 			});
 
-			SimpleIoc.Default.Register<TabbedHomeViewModel>(() =>
+			SimpleIoc.Default.Register<SamplePageViewModel>(() =>
 			{
-				return new TabbedHomeViewModel(
+				return new SamplePageViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
 		}
 
-        public NoteListViewModel NoteList
+		public TabbedHomeViewModel TabbedHome
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<TabbedHomeViewModel>();
+			}
+		}
+		public NoteListViewModel NoteList
         {
             get
             {
 				return ServiceLocator.Current.GetInstance<NoteListViewModel>();
             }
         }
-        
-		//public NoteDetailViewModel NoteDetail
-		//{
-		//	get
-		//	{
-		//		return ServiceLocator.Current.GetInstance<NoteDetailViewModel> ();
-		//	}
-		//}
 		public RemindersHomeViewModel RemindersHome
 		{
 			get
@@ -143,13 +140,14 @@ namespace CaAPA.Data.ViewModel
 				return ServiceLocator.Current.GetInstance<SettingsHomeViewModel>();
 			}
 		}
-		public TabbedHomeViewModel TabbedHome
+		public SamplePageViewModel SamplePage
 		{
 			get
 			{
-				return ServiceLocator.Current.GetInstance<TabbedHomeViewModel>();
+				return ServiceLocator.Current.GetInstance<SamplePageViewModel>();
 			}
 		}
+
 		public static void Cleanup()
         {
             // TODO Clear the ViewModels

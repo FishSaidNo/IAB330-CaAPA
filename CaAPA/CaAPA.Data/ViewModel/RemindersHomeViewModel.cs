@@ -19,7 +19,7 @@ namespace CaAPA.Data
 			DemoButtonCommand = new Command(() => {
 				//Do something e.g:
 				//navigationService.GoBack();
-				
+				navigationService.NavigateTo(ViewModelLocator.SamplePagePageKey);
 			});
 
 		}

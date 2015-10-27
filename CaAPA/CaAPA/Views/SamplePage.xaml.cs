@@ -9,14 +9,14 @@ using Xamarin.Forms;
 
 namespace CaAPA
 {
-	public partial class PromptingHomePage : BaseView
+	public partial class SamplePage : BaseView
 	{
-		public PromptingHomePage()
+		public SamplePage()
 		{
-			BindingContext = App.Locator.PromptingHome;
+			BindingContext = App.Locator.SamplePage;
 			InitializeComponent();
 			base.Init();
-			Title = "Prompting";
+			Title = "Sample Page";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 		}
 
