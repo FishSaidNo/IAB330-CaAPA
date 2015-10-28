@@ -33,6 +33,8 @@ namespace CaAPA.Data.ViewModel
 		public const string SamplePagePageKey = "SamplePage";
         public const string AddActivityPageKey = "AddActivityPage";
         public const string ImagePickerPageKey = "ImagePickerPage";
+        public const string AddReminderPakeKey = "AddReminderPage";
+        public const string StepPageKey = "StepPage";
 
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
@@ -112,6 +114,20 @@ namespace CaAPA.Data.ViewModel
                     SimpleIoc.Default.GetInstance<IMyNavigationService>()
                 );
             });
+
+            SimpleIoc.Default.Register<StepPageViewModel>(() =>
+            {
+                return new StepPageViewModel(
+                    SimpleIoc.Default.GetInstance<IMyNavigationService>()
+                );
+            });
+
+            SimpleIoc.Default.Register<AddReminderViewModel>(() =>
+            {
+                return new AddReminderViewModel(
+                    SimpleIoc.Default.GetInstance<IMyNavigationService>()
+                );
+            });
         }
 
 		public TabbedHomeViewModel TabbedHome
@@ -178,6 +194,24 @@ namespace CaAPA.Data.ViewModel
                 return ServiceLocator.Current.GetInstance<ImagePickerViewModel>();
             }
         }
+
+        public StepPageViewModel Step
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<StepPageViewModel>();
+            }
+        }
+
+        public AddReminderViewModel AddReminder
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AddReminderViewModel>();
+            }
+        }
+
+
 
         public static void Cleanup()
         {
