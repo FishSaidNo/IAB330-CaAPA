@@ -7,7 +7,7 @@ namespace caapaService.ScheduledJobs
     // A simple scheduled job which can be invoked manually by submitting an HTTP
     // POST request to the path "/jobs/?".
 
-    public class JobUserSettings : ScheduledJob
+    public class DefaultJobUserSettings : ScheduledJob
     {
         public override Task ExecuteAsync()
         {

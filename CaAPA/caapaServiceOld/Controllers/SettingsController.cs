@@ -9,42 +9,42 @@ using caapaService.Models;
 
 namespace caapaService.Controllers
 {
-    public class PromptController : TableController<Prompt>
+    public class SettingsController : TableController<Settings>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             caapaContext context = new caapaContext();
-            DomainManager = new EntityDomainManager<Prompt>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Settings>(context, Request, Services);
         }
 
-        // GET tables/Prompt
-        public IQueryable<Prompt> GetAllPrompt()
+        // GET tables/Settings
+        public IQueryable<Settings> GetAllSettings()
         {
             return Query(); 
         }
 
-        // GET tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<Prompt> GetPrompt(string id)
+        // GET tables/Settings/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<Settings> GetSettings(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<Prompt> PatchPrompt(string id, Delta<Prompt> patch)
+        // PATCH tables/Settings/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<Settings> PatchSettings(string id, Delta<Settings> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Prompt
-        public async Task<IHttpActionResult> PostPrompt(Prompt item)
+        // POST tables/Settings
+        public async Task<IHttpActionResult> PostSettings(Settings item)
         {
-            Prompt current = await InsertAsync(item);
+            Settings current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeletePrompt(string id)
+        // DELETE tables/Settings/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteSettings(string id)
         {
              return DeleteAsync(id);
         }

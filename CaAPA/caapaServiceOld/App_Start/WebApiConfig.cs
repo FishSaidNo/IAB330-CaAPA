@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Web.Http;
 using Microsoft.WindowsAzure.Mobile.Service;
 using caapaService.Models;
-using caapaService.DataObjects;
 
 namespace caapaService
 {
@@ -20,27 +19,21 @@ namespace caapaService
 
             // To display errors in the browser during development, uncomment the following
             // line. Comment it out again when you deploy your service for production use.
-             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
-
+            // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            
             // Set default and null value handling to "Include" for Json Serializer
             config.Formatters.JsonFormatter.SerializerSettings.DefaultValueHandling = Newtonsoft.Json.DefaultValueHandling.Include;
             config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Include;
-
+            
             Database.SetInitializer(new caapaInitializer());
         }
     }
-
 
     public class caapaInitializer : ClearDatabaseSchemaIfModelChanges<caapaContext>
     {
         protected override void Seed(caapaContext context)
         {
-            List<Beacon> BeaconsList = new List<Beacon>
-            {
-               // new Beacon {BeaconId= (Guid.NewGuid().ToString()};
-            };
-
-       
+          
 
             base.Seed(context);
         }

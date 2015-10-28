@@ -9,42 +9,42 @@ using caapaService.Models;
 
 namespace caapaService.Controllers
 {
-    public class PromptController : TableController<Prompt>
+    public class UsersController : TableController<Users>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             caapaContext context = new caapaContext();
-            DomainManager = new EntityDomainManager<Prompt>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Users>(context, Request, Services);
         }
 
-        // GET tables/Prompt
-        public IQueryable<Prompt> GetAllPrompt()
+        // GET tables/Users
+        public IQueryable<Users> GetAllUsers()
         {
             return Query(); 
         }
 
-        // GET tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<Prompt> GetPrompt(string id)
+        // GET tables/Users/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<Users> GetUsers(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<Prompt> PatchPrompt(string id, Delta<Prompt> patch)
+        // PATCH tables/Users/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<Users> PatchUsers(string id, Delta<Users> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Prompt
-        public async Task<IHttpActionResult> PostPrompt(Prompt item)
+        // POST tables/Users
+        public async Task<IHttpActionResult> PostUsers(Users item)
         {
-            Prompt current = await InsertAsync(item);
+            Users current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeletePrompt(string id)
+        // DELETE tables/Users/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteUsers(string id)
         {
              return DeleteAsync(id);
         }

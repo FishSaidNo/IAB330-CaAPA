@@ -9,42 +9,42 @@ using caapaService.Models;
 
 namespace caapaService.Controllers
 {
-    public class PromptController : TableController<Prompt>
+    public class ReminderController : TableController<Reminder>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             caapaContext context = new caapaContext();
-            DomainManager = new EntityDomainManager<Prompt>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Reminder>(context, Request, Services);
         }
 
-        // GET tables/Prompt
-        public IQueryable<Prompt> GetAllPrompt()
+        // GET tables/Reminder
+        public IQueryable<Reminder> GetAllReminder()
         {
             return Query(); 
         }
 
-        // GET tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<Prompt> GetPrompt(string id)
+        // GET tables/Reminder/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<Reminder> GetReminder(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<Prompt> PatchPrompt(string id, Delta<Prompt> patch)
+        // PATCH tables/Reminder/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<Reminder> PatchReminder(string id, Delta<Reminder> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Prompt
-        public async Task<IHttpActionResult> PostPrompt(Prompt item)
+        // POST tables/Reminder
+        public async Task<IHttpActionResult> PostReminder(Reminder item)
         {
-            Prompt current = await InsertAsync(item);
+            Reminder current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeletePrompt(string id)
+        // DELETE tables/Reminder/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteReminder(string id)
         {
              return DeleteAsync(id);
         }

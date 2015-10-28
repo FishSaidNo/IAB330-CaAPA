@@ -5,9 +5,9 @@ using Microsoft.WindowsAzure.Mobile.Service;
 namespace caapaService.ScheduledJobs
 {
     // A simple scheduled job which can be invoked manually by submitting an HTTP
-    // POST request to the path "/jobs/?".
+    // POST request to the path "/jobs/UserMaps".
 
-    public class JobUserSettings : ScheduledJob
+    public class UserMapsJob : ScheduledJob
     {
         public override Task ExecuteAsync()
         {

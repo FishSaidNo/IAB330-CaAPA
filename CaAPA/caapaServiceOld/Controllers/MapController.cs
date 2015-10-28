@@ -9,42 +9,42 @@ using caapaService.Models;
 
 namespace caapaService.Controllers
 {
-    public class PromptController : TableController<Prompt>
+    public class MapController : TableController<Map>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             caapaContext context = new caapaContext();
-            DomainManager = new EntityDomainManager<Prompt>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Map>(context, Request, Services);
         }
 
-        // GET tables/Prompt
-        public IQueryable<Prompt> GetAllPrompt()
+        // GET tables/Map
+        public IQueryable<Map> GetAllMap()
         {
             return Query(); 
         }
 
-        // GET tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<Prompt> GetPrompt(string id)
+        // GET tables/Map/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<Map> GetMap(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<Prompt> PatchPrompt(string id, Delta<Prompt> patch)
+        // PATCH tables/Map/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<Map> PatchMap(string id, Delta<Map> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Prompt
-        public async Task<IHttpActionResult> PostPrompt(Prompt item)
+        // POST tables/Map
+        public async Task<IHttpActionResult> PostMap(Map item)
         {
-            Prompt current = await InsertAsync(item);
+            Map current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeletePrompt(string id)
+        // DELETE tables/Map/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteMap(string id)
         {
              return DeleteAsync(id);
         }

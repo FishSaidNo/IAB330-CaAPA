@@ -9,42 +9,42 @@ using caapaService.Models;
 
 namespace caapaService.Controllers
 {
-    public class PromptController : TableController<Prompt>
+    public class BeaconController : TableController<Beacon>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             caapaContext context = new caapaContext();
-            DomainManager = new EntityDomainManager<Prompt>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Beacon>(context, Request, Services);
         }
 
-        // GET tables/Prompt
-        public IQueryable<Prompt> GetAllPrompt()
+        // GET tables/Beacon
+        public IQueryable<Beacon> GetAllBeacon()
         {
             return Query(); 
         }
 
-        // GET tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<Prompt> GetPrompt(string id)
+        // GET tables/Beacon/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<Beacon> GetBeacon(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<Prompt> PatchPrompt(string id, Delta<Prompt> patch)
+        // PATCH tables/Beacon/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<Beacon> PatchBeacon(string id, Delta<Beacon> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Prompt
-        public async Task<IHttpActionResult> PostPrompt(Prompt item)
+        // POST tables/Beacon
+        public async Task<IHttpActionResult> PostBeacon(Beacon item)
         {
-            Prompt current = await InsertAsync(item);
+            Beacon current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Prompt/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeletePrompt(string id)
+        // DELETE tables/Beacon/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteBeacon(string id)
         {
              return DeleteAsync(id);
         }
