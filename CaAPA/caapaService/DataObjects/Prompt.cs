@@ -30,7 +30,7 @@ namespace caapaService.DataObjects
         /// <param name="promptName">promptName .</param>
         /// <param name="promptDesc">promptDesc .</param>
         /// <param name="userId">userId .</param>
-        public Prompt(int promptId, String promptName = "", String promptDesc = "", int userID)
+        public Prompt(int promptId, int userID, String promptName = "", String promptDesc = "")
         {
             this.promptId = promptId;
             this.promptName = promptName;

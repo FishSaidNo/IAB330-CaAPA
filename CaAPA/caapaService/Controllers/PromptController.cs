@@ -4,7 +4,7 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
-using caapaService.DataObjects;E:\uni\330 Mobile Application Development\AAcaapa_db_running\caapaService\DataObjects\GuiSettings.cs
+using caapaService.DataObjects;
 using caapaService.Models;
 
 namespace caapaService.Controllers
