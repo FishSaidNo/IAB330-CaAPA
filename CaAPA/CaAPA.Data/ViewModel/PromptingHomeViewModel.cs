@@ -9,25 +9,17 @@ using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using GalaSoft.MvvmLight;
 
 namespace CaAPA.Data
 {
-	public class PromptingHomeViewModel
+	public class PromptingHomeViewModel : ViewModelBase
 	{
-//		public ICommand DemoButtonCommand { get; private set; }
-//
-//		public PromptingHomeViewModel(IMyNavigationService navigationService)
-//		{
-//
-//			DemoButtonCommand = new Command(() => {
-//				//Do something e.g:
-//				//navigationService.GoBack();
-//			});
-//
-//		}
+		private IMyNavigationService navigationService;
 
 		public PromptingHomeViewModel(IMyNavigationService navigationService)
 		{
+			this.navigationService = navigationService;
 			Data = new List<SharedBeacon>();
 		}
 

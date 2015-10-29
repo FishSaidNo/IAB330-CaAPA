@@ -2,10 +2,12 @@
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using GalaSoft.MvvmLight;
+using CaAPA.Data.ViewModel;
 
 namespace CaAPA.Data
 {
-	public class BeaconViewModel
+	public class BeaconViewModel : ViewModelBase
 	{
 		public BeaconViewModel()
 		{

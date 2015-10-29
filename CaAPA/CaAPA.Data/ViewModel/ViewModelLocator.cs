@@ -79,12 +79,19 @@ namespace CaAPA.Data.ViewModel
 					);
 				});
 
+//			SimpleIoc.Default.Register<PromptingHomeViewModel>(() =>
+//			{
+//				return new PromptingHomeViewModel(
+//					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+//				);
+//			});
+
 			SimpleIoc.Default.Register<PromptingHomeViewModel>(() =>
-			{
-				return new PromptingHomeViewModel(
-					SimpleIoc.Default.GetInstance<IMyNavigationService>()
-				);
-			});
+				{
+					return new PromptingHomeViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
 
 			SimpleIoc.Default.Register<MappingHomeViewModel>(() =>
 			{
@@ -138,6 +145,13 @@ namespace CaAPA.Data.ViewModel
 				return ServiceLocator.Current.GetInstance<ReminderEntryViewModel>();
 			}
 		}
+//		public PromptingHomeViewModel PromptingHome
+//		{
+//			get
+//			{
+//				return ServiceLocator.Current.GetInstance<PromptingHomeViewModel>();
+//			}
+//		}
 		public PromptingHomeViewModel PromptingHome
 		{
 			get
