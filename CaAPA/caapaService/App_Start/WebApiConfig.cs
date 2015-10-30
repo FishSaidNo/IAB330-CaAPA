@@ -37,10 +37,56 @@ namespace caapaService
         {
             List<Beacon> BeaconsList = new List<Beacon>
             {
-               // new Beacon {BeaconId= (Guid.NewGuid().ToString()};
+           
             };
 
-       
+            List<GuiSettings> GuiSettingsList = new List<GuiSettings>
+            {
+                
+            };
+
+            List<Location> LocationList = new List<Location>
+            {
+
+            };
+
+            List<Map> MapList = new List<Map>
+            {
+
+            };
+
+            List<Map> PromptList = new List<Map>
+            {
+
+            };
+
+            List<PromptStep> PromptStepList = new List<PromptStep>
+            {
+
+            };
+
+            List<Reminder> ReminderList = new List<Reminder>
+            {
+
+            };
+
+            List<Settings> SettingsList = new List<Settings>
+            {
+
+            };
+
+            List<UserMaps>UserMapsList = new List<UserMaps>
+            {
+
+            };
+            List<Users> UsersList = new List<Users>
+            {
+
+            };
+            List<UserSettings> UserSettingsList = new List<UserSettings>
+            {
+
+            };
 
             base.Seed(context);
         }

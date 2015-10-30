@@ -12,7 +12,7 @@ namespace caapaService.DataObjects
     public class Settings : EntityData
     {
 
-        [JsonProperty(PropertyName = "BeaconId")]
+        [JsonProperty(PropertyName = "SettingsId")]
         public int SettingsId { get; set; }
 
         public Settings()

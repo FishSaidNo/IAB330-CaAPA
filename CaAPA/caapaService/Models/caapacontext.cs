@@ -30,16 +30,18 @@ namespace caapaService.Models
 
         }
 
-        public DbSet<caapaService.caapaInitializer> Beacons { get; set; }
-        public DbSet<caapaService.caapaInitializer> Locations { get; set; }
-        public DbSet<caapaService.caapaInitializer> Maps { get; set; }
-        public DbSet<caapaService.caapaInitializer> Prompts { get; set; }
-        public DbSet<caapaService.caapaInitializer> PromptSteps { get; set; }
-        public DbSet<caapaService.caapaInitializer> Reminders { get; set; }
-        public DbSet<caapaService.caapaInitializer> Settings { get; set; }
-        public DbSet<caapaService.caapaInitializer> UserMaps { get; set; }
-        public DbSet<caapaService.caapaInitializer> Users { get; set; }
-        public DbSet<caapaService.caapaInitializer> UserSettings { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Beacon> Beacon { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.GuiSettings> GuiSettings { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Location> Location { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Map> Map { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Prompt> Prompt { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.PromptStep> PromptStep { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Reminder> Reminder { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Settings> Settings { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.UserMaps> UserMaps { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.Users> Users { get; set; }
+        public System.Data.Entity.DbSet<caapaService.DataObjects.UserSettings> UserSettings { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,6 +56,7 @@ namespace caapaService.Models
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
 
-        public System.Data.Entity.DbSet<caapaService.DataObjects.GuiSettings> GuiSettings { get; set; }
+ 
+     
     }
 }
