@@ -5,8 +5,6 @@ using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
 
-using Xamarin.Forms;
-
 namespace CaAPA
 {
 	public partial class MappingHomePage : BaseView
