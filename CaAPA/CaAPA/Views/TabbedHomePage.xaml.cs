@@ -16,28 +16,18 @@ namespace CaAPA
 			BindingContext = App.Locator.TabbedHome;
 			InitializeComponent();
 			//base.Init();
-			Title = "Home";
-			//Icon =
+			Title = "Home"; //Shouldn't be displayed.
+			BackgroundColor = Color.FromRgb(255,255,255);
 
-			var myReminders = new RemindersHomePage();
 			var myPrompting = new PromptingHomePage();
+			var myReminders = new RemindersHomePage();
 			var myMapping = new MappingHomePage();
 			var mySettings = new SettingsHomePage();
 
-
-			Children.Add(myReminders);
 			Children.Add(myPrompting);
+			Children.Add(myReminders);
 			Children.Add(myMapping);
 			Children.Add(mySettings);
-
-
-			//var mySettings = new NavigationPage(new SettingsHomePage());
-			//var myReminders = new NavigationPage(new RemindersHomePage());
-			//mySettings.Title = "Settings";
-			//myReminders.Title = "Reminders";
-
-
-
 		}
 
 		protected void Init()
@@ -61,7 +51,7 @@ namespace CaAPA
 
 		protected override void OnAppearing()
 		{
-			
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 	}
 }

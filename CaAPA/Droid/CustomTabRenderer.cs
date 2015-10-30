@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
+using Android.Graphics;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(CaAPA.Droid.CustomTabRenderer))]
 
@@ -21,26 +22,33 @@ namespace CaAPA.Droid
 		private Activity _activity;
 
 		//protected override void OnElementChanged(VisualElement oldModel, VisualElement newModel)
-		protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)
+		//protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)
+		protected override void OnDraw(Canvas canvas)
 		{
-			base.OnElementChanged(e);
-
 			_activity = this.Context as Activity;
-		}
-
-		// May put this code in a different method - was just for testing
-		public override void OnWindowFocusChanged(bool hasWindowFocus)
-		{
-			// Here the magic happens:  get your ActionBar and select the tab you want to add an image
 			ActionBar actionBar = _activity.ActionBar;
 
 			if (actionBar.TabCount > 0)
 			{
-				Android.App.ActionBar.Tab tabOne = actionBar.GetTabAt(0);
+				ActionBar.Tab tabPrompting = actionBar.GetTabAt(0);
+				ActionBar.Tab tabReminders = actionBar.GetTabAt(1);
+				ActionBar.Tab tabMapping = actionBar.GetTabAt(2);
+				ActionBar.Tab tabSettings = actionBar.GetTabAt(3);
 
-				tabOne.SetIcon(Resource.Drawable.monkeyicon);
+				//Set the tab icons
+				tabPrompting.SetIcon(Resource.Drawable.ic_description_white_24dp);
+				tabReminders.SetIcon(Resource.Drawable.ic_schedule_white_24dp);
+				tabMapping.SetIcon(Resource.Drawable.ic_map_white_24dp);
+				tabSettings.SetIcon(Resource.Drawable.ic_settings_white_24dp);
+
+				//Remove the page's title from the tab
+				tabPrompting.SetText("");
+				tabReminders.SetText("");
+				tabMapping.SetText("");
+				tabSettings.SetText("");
+
+				base.OnDraw(canvas);
 			}
-			base.OnWindowFocusChanged(hasWindowFocus);
 		}
 	}
 }

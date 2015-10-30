@@ -11,15 +11,15 @@ namespace CaAPA.Data
 {
 	public class RemindersHomeViewModel : ViewModelBase
 	{
-		public ICommand DemoButtonCommand { get; private set; }
+		public ICommand AddNewReminderCommand { get; private set; }
 
 		public RemindersHomeViewModel(IMyNavigationService navigationService)
 		{
 
-			DemoButtonCommand = new Command(() => {
+			AddNewReminderCommand = new Command(() => {
 				//Do something e.g:
 				//navigationService.GoBack();
-				
+				navigationService.NavigateTo(ViewModelLocator.AddReminderPageKey);
 			});
 
 		}
