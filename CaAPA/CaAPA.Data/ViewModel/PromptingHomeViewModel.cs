@@ -24,8 +24,6 @@ namespace CaAPA.Data
 			});
 		}
 
-
-
 		public event EventHandler ListChanged;
 
 		public List<SharedBeacon> Data { get; set; }
@@ -34,7 +32,6 @@ namespace CaAPA.Data
 		{
 			var beaconService = DependencyService.Get<IAltBeaconService>();
 
-			// INVOCATION EXCEPTION
 			beaconService.ListChanged += (sender, e) => 
 			{
 				Data = e.Data;

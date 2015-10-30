@@ -23,35 +23,40 @@ namespace CaAPA
 			Title = "Prompting";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 //			Content = BuildContent ();
+
+			BeaconListView.SetBinding (ListView.ItemsSourceProperty, "Data");
+			BeaconListView.ItemSelected += OnSelection;
+			BeaconListView.ItemTapped += OnTap;
 		}
 
-		private View BuildContent() {
-			_list = new ListView {
-				VerticalOptions = LayoutOptions.FillAndExpand,
+//		private View BuildContent() {
+//			_list = new ListView {
+//				VerticalOptions = LayoutOptions.FillAndExpand,
 //				ItemTemplate = new DataTemplate(typeof(ListItemView)),
-				RowHeight = 90,
-			};
-
-			_list.ItemsSource = new string[] {
-				"Prepare Dinner"
-			};
-
+//				RowHeight = 90,
+//			};
+//
+//			_list.ItemsSource = new string[] {
+//				"Prepare Dinner"
+//			};
+//
 //			_list.SetBinding(ListView.ItemsSourceProperty, "Data");
-			_list.ItemSelected += OnSelection;
-			_list.ItemTapped += OnTap;
-
-			return _list;
-		}
+//			_list.ItemSelected += OnSelection;
+//			_list.ItemTapped += OnTap;
+//
+//			return _list;
+//		}
 
 		protected override void OnAppearing()
 		{
 			//Add this to all pages to avoid annoying icon next to the back button
 			var noIcon = "transparent1x1.png";
 			NavigationPage.SetTitleIcon(this, noIcon);
+			base.OnAppearing ();
 			var vm = ServiceLocator.Current.GetInstance<PromptingHomeViewModel> ();
-//			vm.Init ();
+			vm.Init ();
 			vm.ListChanged += (sender, e) => {
-				_list.ItemsSource = vm.Data;
+				BeaconListView.ItemsSource = vm.Data;
 			};
 
 		}

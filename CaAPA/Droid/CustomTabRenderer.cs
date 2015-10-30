@@ -36,10 +36,10 @@ namespace CaAPA.Droid
 				ActionBar.Tab tabSettings = actionBar.GetTabAt(3);
 
 				//Set the tab icons
-				tabPrompting.SetIcon(Resource.Drawable.promptingIcon2);
-				tabReminders.SetIcon(Resource.Drawable.remindersIcon2);
-				tabMapping.SetIcon(Resource.Drawable.mappingIcon);
-				tabSettings.SetIcon(Resource.Drawable.settingsIcon2);
+				tabPrompting.SetIcon(Resource.Drawable.ic_description_white_24dp);
+				tabReminders.SetIcon(Resource.Drawable.ic_schedule_white_24dp);
+				tabMapping.SetIcon(Resource.Drawable.ic_map_white_24dp);
+				tabSettings.SetIcon(Resource.Drawable.ic_settings_white_24dp);
 
 				//Remove the page's title from the tab
 				tabPrompting.SetText("");

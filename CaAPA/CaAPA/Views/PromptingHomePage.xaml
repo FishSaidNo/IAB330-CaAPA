@@ -9,6 +9,9 @@
 			TextColor="Black"
 		/>
 
+		<ListView x:Name="BeaconListView">
+		</ListView>
+
 		<Button HorizontalOptions = "FillAndExpand" Text="Add New Prompt" Command = "{Binding AddNewPromptCommand}"/>
 
 	</StackLayout>

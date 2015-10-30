@@ -8,6 +8,8 @@ using Android.App;
 using CaAPA.Droid;
 using CaAPA.Data;
 
+[assembly: Xamarin.Forms.Dependency(typeof(AltBeaconService))]
+
 namespace CaAPA.Droid
 {
 	public class AltBeaconService : Java.Lang.Object, IAltBeaconService
@@ -90,7 +92,6 @@ namespace CaAPA.Droid
 			BeaconManagerImpl.SetForegroundBetweenScanPeriod(5000); // 5000 milliseconds
 
 			BeaconManagerImpl.SetMonitorNotifier(_monitorNotifier); 
-			//			_beaconManager.StartMonitoringBeaconsInRegion(_tagRegion);
 			_beaconManager.StartMonitoringBeaconsInRegion(region1);
 			//			_beaconManager.StartMonitoringBeaconsInRegion(region2);
 			//			_beaconManager.StartMonitoringBeaconsInRegion(region3);
@@ -211,8 +212,7 @@ namespace CaAPA.Droid
 				var data = new List<SharedBeacon>();
 				_data.ForEach(b =>
 					{
-						//						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Distance = string.Format("{0:N2}m", b.Distance)});
-						data.Add(new SharedBeacon { UUID = b.Id1.ToString(), Name = "Prompt 1", Description = "", Distance = string.Format("{0:N2}m", b.Distance)});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Distance = string.Format("{0:N2}m", b.Distance)});
 					});
 				handler(this, new ListChangedEventArgs(data));
 			}
