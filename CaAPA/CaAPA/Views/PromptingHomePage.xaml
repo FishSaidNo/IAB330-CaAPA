@@ -6,9 +6,10 @@
 			VerticalOptions="Center"
 			FontAttributes="Bold"
 			FontSize="Large"
+			TextColor="Black"
 		/>
 
-		<Button HorizontalOptions = "CenterAndExpand" Text="Demo Button" Command = "{Binding DemoButtonCommand}"/>
+		<Button HorizontalOptions = "FillAndExpand" Text="Add New Prompt" Command = "{Binding AddNewPromptCommand}"/>
 
 	</StackLayout>-->
 </BaseView>

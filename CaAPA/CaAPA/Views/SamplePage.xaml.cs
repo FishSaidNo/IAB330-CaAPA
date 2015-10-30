@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Input;
+
 using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
 
+using Xamarin.Forms;
+
 namespace CaAPA
 {
-	public partial class SettingsHomePage : BaseView
+	public partial class SamplePage : BaseView
 	{
-		public SettingsHomePage()
+		public SamplePage()
 		{
-			BindingContext = App.Locator.SettingsHome;
+			BindingContext = App.Locator.SamplePage;
 			InitializeComponent();
 			base.Init();
-			Title = "Settings";
+			Title = "Sample Page";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 		}
 
@@ -24,6 +26,5 @@ namespace CaAPA
 			var noIcon = "transparent1x1.png";
 			NavigationPage.SetTitleIcon(this, noIcon);
 		}
-
 	}
 }

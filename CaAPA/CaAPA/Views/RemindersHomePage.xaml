@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.RemindersHomePage">
 	<StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
+<<<<<<< HEAD
 		<ScrollView>
 			<StackLayout>
 				<ListView x:Name="ReminderListView" ItemsSource="{Binding ReminderList, Mode=TwoWay}">
@@ -27,6 +28,18 @@
 				<Button Text = "Add New Reminder" Command = "{Binding NewReminderCommand}" />
 			</StackLayout>
 		</ScrollView>
+=======
+
+		<Label Text="Reminders"
+			VerticalOptions="Center"
+			FontAttributes="Bold"
+			FontSize="Large"
+			TextColor="Black"
+		/>
+
+		<Button HorizontalOptions = "FillAndExpand" Text="Add New Reminder" Command = "{Binding AddNewReminderCommand}"/>
+
+>>>>>>> jonathan-30-10
 	</StackLayout>
 </BaseView>
 

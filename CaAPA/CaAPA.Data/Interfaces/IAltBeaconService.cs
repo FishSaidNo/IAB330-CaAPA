@@ -10,6 +10,10 @@ namespace CaAPA.Data
 
 		event EventHandler<ListChangedEventArgs> ListChanged;
 		event EventHandler DataClearing;
+<<<<<<< HEAD
 	}
+=======
+	}	
+>>>>>>> jonathan-30-10
 }
 

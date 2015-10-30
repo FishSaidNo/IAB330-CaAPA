@@ -35,6 +35,9 @@
   <ItemGroup>
     <Compile Include="CaAPA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\SamplePage.xaml.cs">
+      <DependentUpon>SamplePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TabbedHomePage.xaml.cs">
       <DependentUpon>TabbedHomePage.xaml</DependentUpon>
     </Compile>
@@ -54,18 +57,47 @@
     <Compile Include="Views\SettingsHomePage.xaml.cs">
       <DependentUpon>SettingsHomePage.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Views\ReminderEntryPage.xaml.cs">
       <DependentUpon>ReminderEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PromptingHomePage.cs" />
     <Compile Include="Views\ListItemView.cs" />
+=======
+    <Compile Include="Views\ListItemView.cs" />
+    <Compile Include="Views\AddActivityPage.xaml.cs">
+      <DependentUpon>AddActivityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddReminderPage.xaml.cs">
+      <DependentUpon>AddReminderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImagePickerPage.xaml.cs">
+      <DependentUpon>ImagePickerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StepPage.xaml.cs">
+      <DependentUpon>StepPage.xaml</DependentUpon>
+    </Compile>
+>>>>>>> jonathan-30-10
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
     <EmbeddedResource Include="Views\NoteListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Views\ReminderEntryPage.xaml">
+=======
+    <EmbeddedResource Include="Views\AddActivityPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddReminderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImagePickerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StepPage.xaml">
+>>>>>>> jonathan-30-10
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -122,6 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TabbedHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SamplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

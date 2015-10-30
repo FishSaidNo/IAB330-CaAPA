@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CaAPA.StepPage">
+  <StackLayout>
+    <Label x:Name="activityNameLabel" Text="Activity Name" HorizontalOptions="CenterAndExpand"/>
+    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+    <Label x:Name="instructions" Text="Instructions" HorizontalOptions="FillAndExpand" />
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <Button Grid.Row="0" Grid.Column="0" Text="Back" Clicked="gobackstep"/>
+      <Button Grid.Row="0" Grid.Column="1" Text="Next" Clicked="goforwardstep"/>
+    </Grid>
+  </StackLayout>
+  
+</BaseView>

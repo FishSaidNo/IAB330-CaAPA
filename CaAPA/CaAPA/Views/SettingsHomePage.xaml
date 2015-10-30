@@ -5,7 +5,8 @@
 		<Label Text="Settings"
 			VerticalOptions="Center"
 			FontAttributes="Bold"
-			FontSize="Large" 
+			FontSize="Large"
+			TextColor="Black"
 		/>
 
 		<Button HorizontalOptions = "CenterAndExpand" Text="Demo Button" Command = "{Binding DemoButtonCommand}"/>

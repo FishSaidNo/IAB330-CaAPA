@@ -9,7 +9,11 @@ namespace CaAPA.Data.ViewModel
 {
 	public class RemindersHomeViewModel : ViewModelBase
 	{
+<<<<<<< HEAD
 		private IMyNavigationService navigationService;
+=======
+		public ICommand AddNewReminderCommand { get; private set; }
+>>>>>>> jonathan-30-10
 
 		public ObservableCollection<Note> ReminderList {
 			get {
@@ -24,7 +28,16 @@ namespace CaAPA.Data.ViewModel
 		{
 			this.navigationService = navigationService;
 
+<<<<<<< HEAD
 			NewReminderCommand = new Command (() => this.navigationService.NavigateTo (ViewModelLocator.ReminderEntryPageKey));
+=======
+			AddNewReminderCommand = new Command(() => {
+				//Do something e.g:
+				//navigationService.GoBack();
+				navigationService.NavigateTo(ViewModelLocator.AddReminderPageKey);
+			});
+
+>>>>>>> jonathan-30-10
 		}
 
 		public void OnAppearing(){

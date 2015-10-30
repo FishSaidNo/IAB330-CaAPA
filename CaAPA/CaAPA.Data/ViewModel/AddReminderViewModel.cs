@@ -7,20 +7,15 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace CaAPA.Data
 {
-	public class SettingsHomeViewModel : ViewModelBase
+	public class AddReminderViewModel : ViewModelBase
 	{
 		public ICommand DemoButtonCommand { get; private set; }
-
-		public SettingsHomeViewModel(IMyNavigationService navigationService)
+		public AddReminderViewModel(IMyNavigationService navigationService)
 		{
-
 			DemoButtonCommand = new Command(() => {
 				//Do something e.g:
 				//navigationService.GoBack();
-				navigationService.NavigateTo(ViewModelLocator.SamplePagePageKey);
 			});
-
 		}
-
 	}
 }

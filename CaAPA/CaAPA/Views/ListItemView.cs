@@ -1,13 +1,23 @@
 ﻿using System;
 using Xamarin.Forms;
+<<<<<<< HEAD
+=======
+using System.Diagnostics;
+>>>>>>> jonathan-30-10
 
 namespace CaAPA
 {
 	public class ListItemView : ViewCell
 	{
+<<<<<<< HEAD
 		public ListItemView()
 		{
 			View = BuildContent();
+=======
+		public ListItemView ()
+		{
+			View = BuildContent ();
+>>>>>>> jonathan-30-10
 		}
 
 		private View BuildContent()

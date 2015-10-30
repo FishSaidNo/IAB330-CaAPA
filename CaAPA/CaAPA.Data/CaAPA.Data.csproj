@@ -37,6 +37,7 @@
     <Compile Include="ViewModel\MappingHomeViewModel.cs" />
     <Compile Include="ViewModel\PromptingHomeViewModel.cs" />
     <Compile Include="ViewModel\RemindersHomeViewModel.cs" />
+    <Compile Include="ViewModel\SamplePageViewModel.cs" />
     <Compile Include="ViewModel\SettingsHomeViewModel.cs" />
     <Compile Include="ViewModel\TabbedHomeViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -46,11 +47,25 @@
     <Compile Include="Interfaces\IPageLifeCycleEvents.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
     <Compile Include="Database\NoteDatabase.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModel\ReminderEntryViewModel.cs" />
     <Compile Include="ViewModel\BeaconViewModel.cs" />
     <Compile Include="ViewModel\ListChangedEventArgs.cs" />
     <Compile Include="Models\SharedBeacon.cs" />
     <Compile Include="Interfaces\IAltBeaconService.cs" />
+=======
+    <Compile Include="Interfaces\IAltBeaconService.cs" />
+    <Compile Include="Models\SharedBeacon.cs" />
+    <Compile Include="ViewModel\ListChangedEventArgs.cs" />
+    <Compile Include="ViewModel\AddActivityViewModel.cs" />
+    <Compile Include="ViewModel\AddReminderViewModel.cs" />
+    <Compile Include="ViewModel\ImagePickerViewModel.cs" />
+    <Compile Include="ViewModel\StepPageViewModel.cs" />
+    <Compile Include="Models\Reminder.cs" />
+    <Compile Include="Models\Step.cs" />
+    <Compile Include="Interfaces\IGallery.cs" />
+    <Compile Include="Models\PromptActivity.cs" />
+>>>>>>> jonathan-30-10
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -74,6 +89,7 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Xamarin.Forms.1.5.0.6447\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+<<<<<<< HEAD
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
@@ -89,6 +105,8 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\packages\WindowsAzure.MobileServices.1.3.2\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+=======
+>>>>>>> jonathan-30-10
     </Reference>
   </ItemGroup>
   <ItemGroup>

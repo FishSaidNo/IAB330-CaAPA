@@ -51,13 +51,42 @@ namespace CaAPA.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
+<<<<<<< HEAD
 			public const int altbeacon = 2130837504;
+=======
+			public const int awareIcon2 = 2130837504;
+>>>>>>> jonathan-30-10
 			
 			// aapt resource value: 0x7f020001
 			public const int icon = 2130837505;
 			
 			// aapt resource value: 0x7f020002
+<<<<<<< HEAD
 			public const int monkeyicon = 2130837506;
+=======
+			public const int mappingIcon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int monkeyicon = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int promptingIcon = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int promptingIcon2 = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int remindersIcon = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int remindersIcon2 = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int settingsIcon2 = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int transparent1x1 = 2130837513;
+>>>>>>> jonathan-30-10
 			
 			static Drawable()
 			{
@@ -69,11 +98,43 @@ namespace CaAPA.Droid
 			}
 		}
 		
+<<<<<<< HEAD
 		public partial class String
 		{
 			
 			// aapt resource value: 0x7f030001
 			public const int ApplicationName = 2130903041;
+=======
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050001
+			public const int beaconDistance = 2131034113;
+			
+			// aapt resource value: 0x7f050000
+			public const int beaconId = 2131034112;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
+		public partial class Layout
+		{
+			
+			// aapt resource value: 0x7f030000
+			public const int ListItem = 2130903040;
+			
+			static Layout()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+>>>>>>> jonathan-30-10
 			
 			// aapt resource value: 0x7f030000
 			public const int Hello = 2130903040;

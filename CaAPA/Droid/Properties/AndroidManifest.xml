@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.caapa.caapa" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
+<<<<<<< HEAD
 
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 	<application android:label="CaAPA"></application>
+=======
+	<application android:label="CaAPA" android:icon="@drawable/awareIcon2"></application>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+>>>>>>> jonathan-30-10
 </manifest>

@@ -9,6 +9,10 @@ namespace CaAPA.Data
 		{
 			Data = data;
 		}
+<<<<<<< HEAD
 	}	
+=======
+	}
+>>>>>>> jonathan-30-10
 }
 
