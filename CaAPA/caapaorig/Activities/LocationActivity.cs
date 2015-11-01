@@ -18,17 +18,17 @@ namespace caapa.Activities
     [Activity (MainLauncher = true, 
                Icon="@drawable/ic_launcher", Label="@string/app_name",
                Theme="@style/AppTheme")]
-    public class GuiSettingsActivity : Activity
+    public class LocationActivity : Activity
     {
 
         //Mobile Service Client reference
-        private MobileServiceClient guisettings;
+        private MobileServiceClient location;
 
         //Mobile Service sync table used to access data
-        private IMobileServiceSyncTable<GuiSettings> guisettingsTable;
+        private IMobileServiceSyncTable<Location> locationTable;
 
         //Adapter to map the items list to the view
-        private Adapters.GuiSettingsAdapter adapter;
+        private Adapters.LocationAdapter adapter;
 
         //EditText containing the "New ToDo" text
         private EditText textNewToDo;
@@ -47,26 +47,25 @@ namespace caapa.Activities
             base.OnCreate (bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.Activity_To_Do); //change to fit
+            SetContentView (Resource.Layout.Activity_To_Do);
 
             CurrentPlatform.Init ();
 
            // await InitLocalStoreAsync();
 
             // Get the Mobile Service sync table instance to use
-            var toDoTable = client.GetSyncTable <GuiSettings> ();
+            var toDoTable = client.GetSyncTable <Location> ();
 
-            //textNewToDo = FindViewById<EditText> (Resource.Id.textNewToDo);
+            //textNewToDo = FindViewById<EditText> (Resource.Id.textNewToDo); //change to fit
 
             // Create an adapter to bind the items with the view
-            adapter = new Adapters.GuiSettingsAdapter(this, Resource.Layout.Row_List_To_Do);//edit for matching view resource 
-            var listViewGuiSettings = FindViewById<ListView> (Resource.Id.listViewToDo);
-            listViewGuiSettings.Adapter = adapter;
+            adapter = new Adapters.LocationAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewLocation = FindViewById<ListView> (Resource.Id.listViewToDo);
+            listViewLocation.Adapter = adapter;
 
             // Load the items from the Mobile Service
             OnRefreshItemsSelected ();
         }
-
 
         private async Task InitLocalStoreAsync()
         {
@@ -79,7 +78,7 @@ namespace caapa.Activities
             }
 
             var store = new MobileServiceSQLiteStore(localDbFilename);
-            store.DefineTable<GuiSettings>();
+            store.DefineTable<Location>();
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
@@ -112,7 +111,7 @@ namespace caapa.Activities
 			try {
                 var cancel = new CancellationToken();
 	            await client.SyncContext.PushAsync(cancel);
-	            await guisettingsTable.PullAsync("allTodoItems", guisettingsTable.CreateQuery()); // query ID is used for incremental sync
+	            await locationTable.PullAsync("allTodoItems", locationTable.CreateQuery()); // query ID is used for incremental sync
 			} catch (Java.Net.MalformedURLException) {
 				CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
 			} catch (Exception e) {
@@ -132,11 +131,11 @@ namespace caapa.Activities
         {
             try {
                 // Get the items that weren't marked as completed and add them in the adapter
-                var list = await guisettingsTable.Where (guisettings=> guisettings.Complete == false).ToListAsync ();
+                var list = await locationTable.Where (location => location.Complete == false).ToListAsync ();
 
                 adapter.Clear ();
 
-                foreach (GuiSettings current in list)
+                foreach (Location current in list)
                     adapter.Add (current);
 
             } catch (Exception e) {
@@ -144,39 +143,35 @@ namespace caapa.Activities
             }
         }
 
-        public async Task CheckGuiSettings(GuiSettings guisetting)
+        public async Task CheckLocation(Location location)
         {
-            if (client == null)
-            {
+            if (client == null) {
                 return;
             }
 
             // Set the item as completed and update it in the table
-            guisetting.Complete = true;
-            try
-            {
-                await guisettingsTable.UpdateAsync(guisetting); // update the new item in the local database
+            location.Complete = true;
+            try {
+                await locationTable.UpdateAsync(location); // update the new item in the local database
                 await SyncAsync(); // send changes to the mobile service
 
-                if (guisetting.Complete)
-                    adapter.Remove(guisetting);
+                if (location.Complete)
+                    adapter.Remove (location);
 
-            }
-            catch (Exception e)
-            {
-                CreateAndShowDialog(e, "Error");
+            } catch (Exception e) {
+                CreateAndShowDialog (e, "Error");
             }
         }
 
         [Java.Interop.Export()]
-        public async void AddGuiSettings(View view)
+        public async void AddLocation (View view)
         {
             if (client == null || string.IsNullOrWhiteSpace (textNewToDo.Text)) {
                 return;
             }
 
             // Create a new item
-            var guisetting = new GuiSettings { 
+            var location = new Location {
                 //Text = textNewToDo.Text
 
                 //add collum = value
@@ -187,17 +182,17 @@ namespace caapa.Activities
             };
 
             try {
-                await guisettingsTable.InsertAsync(guisetting); // insert the new item into the local database
+                await locationTable.InsertAsync(location); // insert the new item into the local database
                 await SyncAsync(); // send changes to the mobile service
 
-                if (!guisetting.Complete) {
-                    adapter.Add (guisetting);
+                if (!location.Complete) {
+                    adapter.Add (location);
                 }
             } catch (Exception e) {
                 CreateAndShowDialog (e, "Error");
             }
 
-            textNewToDo.Text = "";
+            //textNewToDo.Text = "";
         }
 
         private void CreateAndShowDialog (Exception exception, String title)

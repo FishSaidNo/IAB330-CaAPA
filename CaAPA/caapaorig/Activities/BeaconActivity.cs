@@ -51,7 +51,8 @@ namespace caapa.Activities
 
             CurrentPlatform.Init ();
 
-           // await InitLocalStoreAsync();
+            // await InitLocalStoreAsync();
+            //await InitLocalStoreAsync();
 
             // Get the Mobile Service sync table instance to use
             var toDoTable = client.GetSyncTable <Beacon> ();
@@ -66,6 +67,26 @@ namespace caapa.Activities
             // Load the items from the Mobile Service
             OnRefreshItemsSelected ();
         }
+
+        private async Task InitLocalStoreAsync()
+        {
+            // new code to initialize the SQLite store
+            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+
+            if (!File.Exists(path))
+            {
+                File.Create(path).Dispose();
+            }
+
+            var store = new MobileServiceSQLiteStore(localDbFilename);
+            store.DefineTable<Beacon>();
+
+            // Uses the default conflict handler, which fails on conflict
+            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            await client.SyncContext.InitializeAsync(store);
+
+        }
+
 
         //Initializes the activity menu
         public override bool OnCreateOptionsMenu (IMenu menu)
@@ -116,8 +137,8 @@ namespace caapa.Activities
 
                 adapter.Clear ();
 
-                //foreach (Beacon current in list)
-                //    adapter.Add (current);
+                foreach (Beacon current in list)
+                  adapter.Add (current);
 
             } catch (Exception e) {
                 CreateAndShowDialog (e, "Error");
@@ -153,11 +174,12 @@ namespace caapa.Activities
 
             // Create a new item
             var beacon = new Beacon {
-                //Text = textNewToDo.Text
-
+              
                 //add collum = value
                 //for each collumn
                 //leave complete it is nessecary for the localdb
+
+                //this may need to wait for the gui integration
 
                 Complete = false
             };
