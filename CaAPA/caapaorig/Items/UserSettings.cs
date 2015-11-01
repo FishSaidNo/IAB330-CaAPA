@@ -23,24 +23,22 @@ namespace caapaorig.Items
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-        public UserSettings() {
-        }
+        public class UserSettingsWrapper : Java.Lang.Object
+        {
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CaaPa.UserSettings"/> class.
-        /// </summary>
-        /// <param name="UserSettingsId ">serSettingsId .</param>
-        /// <param name="UserId ">UserId .</param>
-        /// /// <param name="GuiSettingsId ">GuiSettingsId .</param>
-        /// /// <param name="UiSEttingsJSON ">UiSEttingsJSON  .</param>
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CaaPa.UserSettings"/> class.
+            /// </summary>
+            /// <param name="UserSettingsId ">serSettingsId .</param>
+            /// <param name="UserId ">UserId .</param>
+            /// /// <param name="GuiSettingsId ">GuiSettingsId .</param>
+            /// /// <param name="UiSEttingsJSON ">UiSEttingsJSON  .</param>
+            public UserSettingsWrapper(UserSettings usersetting)
+            {
+                UserSettings = usersetting;
+            }
 
-        public UserSettings(int UserSettingsId, int UserId, int GuiSettingsId, String UISEttingsJSON = "")
-        { 
-
-            this.UserSettingsId = UserSettingsId;
-            this.UserId = UserId;
-            this.GuiSettingsId = GuiSettingsId;
-            this.UISettingsJSON = UISEttingsJSON;
+            public UserSettings UserSettings { get; private set; }
         }
 
 

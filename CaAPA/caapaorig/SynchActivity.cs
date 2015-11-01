@@ -55,8 +55,7 @@ namespace caapa
             SettingsActivity settngsact = new SettingsActivity();
             UserMapsActivity usermapsact = new UserMapsActivity();
             UsersActivity usersact = new UsersActivity();
-
-
+            UserSettingsActivity usersettingsact = new UserSettingsActivity();
            
             store.DefineTable<Beacon>();
             store.DefineTable<GuiSettings>();
@@ -66,11 +65,10 @@ namespace caapa
             store.DefineTable<PromptStep>();
             store.DefineTable<Reminder>();
             store.DefineTable<Settings>();
+            store.DefineTable<UserMaps>();
             store.DefineTable<UserSettings>();
             store.DefineTable<Users>();
-            store.DefineTable<UserMaps>();
-
-
+    
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
             await client.SyncContext.InitializeAsync(store);
