@@ -31,33 +31,25 @@ namespace caapaorig.Items
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-        public Users()
+        public class UsersWrapper : Java.Lang.Object
         {
-        }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CaaPa.Users"/> class.
-        /// </summary>
-        /// <param name="UserId ">UserId .</param>
-        /// <param name="UserName  ">UserName  .</param>
-        /// <param name="UserFirstName  ">UserFirstName  .</param>
-        /// <param name="UserLastName ">UserLastName .</param>
-        /// <param name="Home">eMail .</param>
-        /// <param name="Home">Home .</param>
-        /// <param name="Mobile">Mobile .</param>
-        /// <param name="DeviceMACDongle">DeviceMACDongle .</param>
-        public Users(int UserId, String UserName = "", String UserFirstName = "", String UserLastName = "", 
-            String eMail = "", String Home = "", String Mobile = "", String DeviceMACDongle = "")
-        {
-            this.UserId = UserId;
-            this.UserName = UserName;
-            this.UserFirstName = UserFirstName;
-            this.UserLastName = UserLastName;
-            this.eMail = eMail;
-            this.Home = Home;
-            this.Mobile = Mobile;
-            this.DeviceMACDongle = DeviceMACDongle;
-
+            /// <summary>
+            /// Initializes a new instance of the <see cref="CaaPa.Users"/> class.
+            /// </summary>
+            /// <param name="UserId ">UserId .</param>
+            /// <param name="UserName  ">UserName  .</param>
+            /// <param name="UserFirstName  ">UserFirstName  .</param>
+            /// <param name="UserLastName ">UserLastName .</param>
+            /// <param name="Home">eMail .</param>
+            /// <param name="Home">Home .</param>
+            /// <param name="Mobile">Mobile .</param>
+            /// <param name="DeviceMACDongle">DeviceMACDongle .</param>
+            public UsersWrapper(Users user)
+            {
+                Users = user;
+            }
+            public Users Users{ get; private set; }
         }
 
     }

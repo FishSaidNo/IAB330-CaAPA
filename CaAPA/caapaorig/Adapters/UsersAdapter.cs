@@ -8,13 +8,13 @@ using caapaorig.Items;
 
 namespace caapa.Adapters
 {
-	public class UserMapsAdapter : BaseAdapter<UserMaps>
+	public class UsersAdapter : BaseAdapter<Users>
 	{
 		Activity activity;
 		int layoutResourceId;
-		List<UserMaps> usermaps = new List<UserMaps>();
+		List<Users> users = new List<Users>();
 
-		public UserMapsAdapter(Activity activity, int layoutResourceId)
+		public UsersAdapter(Activity activity, int layoutResourceId)
 		{
 			this.activity = activity;
 			this.layoutResourceId = layoutResourceId;
@@ -35,10 +35,10 @@ namespace caapa.Adapters
 
 				checkBox.CheckedChange += async (sender, e) => {
 					var cbSender = sender as CheckBox;
-					if (cbSender != null && cbSender.Tag is UserMaps.UserMapsWrapper && cbSender.Checked) {
+					if (cbSender != null && cbSender.Tag is Users.UsersWrapper && cbSender.Checked) {
 						cbSender.Enabled = false;
-                        if (activity is Activities.UserMapsActivity)
-                            await ((Activities.UserMapsActivity)activity).CheckUserMaps((cbSender.Tag as UserMaps.UserMapsWrapper).UserMaps);
+                        if (activity is Activities.UsersActivity)
+                            await ((Activities.UsersActivity)activity).CheckUsers((cbSender.Tag as Users.UsersWrapper).Users);
                     }
 				};
 			} else
@@ -52,21 +52,21 @@ namespace caapa.Adapters
 			return row;
 		}
 
-		public void Add (UserMaps usermap)
+		public void Add (Users user)
         {
-            usermaps.Add (usermap);
+            users.Add (user);
 			NotifyDataSetChanged ();
 		}
 
 		public void Clear ()
 		{
-            usermaps.Clear ();
+            users.Clear ();
 			NotifyDataSetChanged ();
 		}
 
-		public void Remove (UserMaps usermap)
+		public void Remove (Users user)
 		{
-            usermaps.Remove (usermap);
+            users.Remove (user);
 			NotifyDataSetChanged ();
 		}
 
@@ -79,13 +79,13 @@ namespace caapa.Adapters
 
 		public override int Count {
 			get {
-				return usermaps.Count;
+				return users.Count;
 			}
 		}
 
-		public override UserMaps this [int position] {
+		public override Users this [int position] {
 			get {
-                return usermaps[position];
+                return users[position];
 			}
 		}
 

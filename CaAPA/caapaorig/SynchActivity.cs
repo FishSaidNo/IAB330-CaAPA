@@ -47,6 +47,16 @@ namespace caapa
 
             BeaconActivity beaconact = new BeaconActivity();
             GuiSettingsActivity guisettingsact = new GuiSettingsActivity();
+            LocationActivity locationact = new LocationActivity();
+            MapActivity mapact = new MapActivity();
+            PromptActivity pract = new PromptActivity();
+            PromptStepActivity promptstepact = new PromptStepActivity();
+            ReminderActivity reminderact = new ReminderActivity();
+            SettingsActivity settngsact = new SettingsActivity();
+            UserMapsActivity usermapsact = new UserMapsActivity();
+            UsersActivity usersact = new UsersActivity();
+
+
            
             store.DefineTable<Beacon>();
             store.DefineTable<GuiSettings>();

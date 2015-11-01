@@ -11,8 +11,6 @@ namespace caapaorig.Items
     public class UserSettings
     {
 
-       
-
         [JsonProperty(PropertyName = "UserSettingsId")]
         public int UserSettingsId { get; set; }
         [JsonProperty(PropertyName = "UserId")]
