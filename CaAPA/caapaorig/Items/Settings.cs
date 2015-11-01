@@ -11,9 +11,6 @@ namespace caapaorig.Items
     public class Settings
     {
 
-
-     
-
         [JsonProperty(PropertyName = "SettingsId")]
         public int SettingsId { get; set; }
 
@@ -24,18 +21,6 @@ namespace caapaorig.Items
         {
 
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CaaPa.Settings"/> class.
-        /// </summary>
-        /// <param name="SettingsId">=SettingsId .</param>
-
-        public Settings(int SettingsId)
-        {
-            this.SettingsId = SettingsId;
-
-        }
-
 
         public class SettingsWrapper : Java.Lang.Object
         {
