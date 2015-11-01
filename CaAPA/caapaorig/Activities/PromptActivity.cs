@@ -54,7 +54,7 @@ namespace caapa.Activities
            // await InitLocalStoreAsync();
 
             // Get the Mobile Service sync table instance to use
-            var toDoTable = client.GetSyncTable <Prompt> ();
+            var promptTable = client.GetSyncTable <Prompt> ();
 
             //textNewToDo = FindViewById<EditText> (Resource.Id.textNewToDo); //change to fit
 
@@ -164,7 +164,7 @@ namespace caapa.Activities
         }
 
         [Java.Interop.Export()]
-        public async void AddPrompt(View view)
+        public async void AddPrompt(View view) {
       
             if (client == null || string.IsNullOrWhiteSpace (textNewToDo.Text)) {
                 return;
@@ -183,7 +183,7 @@ namespace caapa.Activities
             };
 
             try {
-                await Table.InsertAsync(prompt); // insert the new item into the local database
+                await promptTable.InsertAsync(prompt); // insert the new item into the local database
                 await SyncAsync(); // send changes to the mobile service
 
                 if (!prompt.Complete) {

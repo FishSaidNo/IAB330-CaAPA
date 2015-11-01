@@ -54,7 +54,7 @@ namespace caapa.Activities
            // await InitLocalStoreAsync();
 
             // Get the Mobile Service sync table instance to use
-            var toDoTable = client.GetSyncTable <GuiSettings> ();
+            var guisettingsTable = client.GetSyncTable <GuiSettings> ();
 
             //textNewToDo = FindViewById<EditText> (Resource.Id.textNewToDo);
 

@@ -18,17 +18,17 @@ namespace caapa.Activities
     [Activity (MainLauncher = true, 
                Icon="@drawable/ic_launcher", Label="@string/app_name",
                Theme="@style/AppTheme")]
-    public class MapActivity : Activity
+    public class SettingsActivity : Activity
     {
 
         //Mobile Service Client reference
-        private MobileServiceClient Map;
+        private MobileServiceClient Settings;
 
         //Mobile Service sync table used to access data
-        private IMobileServiceSyncTable<Map> mapTable;
+        private IMobileServiceSyncTable<Settings> settingsTable;
 
         //Adapter to map the items list to the view
-        private Adapters.MapAdapter adapter;
+        private Adapters.SettingsAdapter adapter;
 
         //EditText containing the "New ToDo" text
         private EditText textNewToDo;
@@ -54,14 +54,14 @@ namespace caapa.Activities
            // await InitLocalStoreAsync();
 
             // Get the Mobile Service sync table instance to use
-            var mapTable = client.GetSyncTable <Map> ();
+            var settingsTable = client.GetSyncTable <Settings> ();
 
             //textNewToDo = FindViewById<EditText> (Resource.Id.textNewToDo); //change to fit
 
             // Create an adapter to bind the items with the view
-            adapter = new Adapters.MapAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewMap = FindViewById<ListView> (Resource.Id.listViewToDo);
-            listViewMap.Adapter = adapter;
+            adapter = new Adapters.SettingsAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewSettings = FindViewById<ListView> (Resource.Id.listViewToDo);
+            listViewSettings.Adapter = adapter;
 
             // Load the items from the Mobile Service
             OnRefreshItemsSelected ();
@@ -78,7 +78,7 @@ namespace caapa.Activities
             }
 
             var store = new MobileServiceSQLiteStore(localDbFilename);
-            store.DefineTable<Map>();
+            store.DefineTable<Settings>();
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
@@ -111,7 +111,7 @@ namespace caapa.Activities
 			try {
                 var cancel = new CancellationToken();
 	            await client.SyncContext.PushAsync(cancel);
-	            await mapTable.PullAsync("allTodoItems", mapTable.CreateQuery()); // query ID is used for incremental sync
+	            await settingsTable.PullAsync("Reminders", settingsTable.CreateQuery()); // query ID is used for incremental sync
 			} catch (Java.Net.MalformedURLException) {
 				CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
 			} catch (Exception e) {
@@ -131,11 +131,11 @@ namespace caapa.Activities
         {
             try {
                 // Get the items that weren't marked as completed and add them in the adapter
-                var list = await mapTable.Where (map => map.Complete == false).ToListAsync ();
+                var list = await settingsTable.Where (setting => setting.Complete == false).ToListAsync ();
 
                 adapter.Clear ();
 
-                foreach (Map current in list)
+                foreach (Settings current in list)
                     adapter.Add (current);
 
             } catch (Exception e) {
@@ -143,20 +143,20 @@ namespace caapa.Activities
             }
         }
 
-        public async Task CheckMap(Map map)
+        public async Task CheckSettings(Settings setting)
         {
             if (client == null) {
                 return;
             }
 
             // Set the item as completed and update it in the table
-            map.Complete = true;
+            setting.Complete = true;
             try {
-                await mapTable.UpdateAsync(map); // update the new item in the local database
+                await settingsTable.UpdateAsync(setting); // update the new item in the local database
                 await SyncAsync(); // send changes to the mobile service
 
-                if (map.Complete)
-                    adapter.Remove (map);
+                if (setting.Complete)
+                    adapter.Remove (setting);
 
             } catch (Exception e) {
                 CreateAndShowDialog (e, "Error");
@@ -164,14 +164,14 @@ namespace caapa.Activities
         }
 
         [Java.Interop.Export()]
-        public async void AddMap(View view)
-        {
+        public async void AddSettings(View view) {
+      
             if (client == null || string.IsNullOrWhiteSpace (textNewToDo.Text)) {
                 return;
             }
 
             // Create a new item
-            var map = new Map
+            var setting = new Settings
             {
                 //Text = textNewToDo.Text
 
@@ -183,11 +183,11 @@ namespace caapa.Activities
             };
 
             try {
-                await mapTable.InsertAsync(map); // insert the new item into the local database
+                await settingsTable.InsertAsync(setting); // insert the new item into the local database
                 await SyncAsync(); // send changes to the mobile service
 
-                if (!map.Complete) {
-                    adapter.Add (map);
+                if (!setting.Complete) {
+                    adapter.Add (setting);
                 }
             } catch (Exception e) {
                 CreateAndShowDialog (e, "Error");
