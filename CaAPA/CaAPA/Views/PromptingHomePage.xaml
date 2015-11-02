@@ -9,7 +9,26 @@
 			TextColor="Black"
 		/>
 
-		<ListView x:Name="BeaconListView">
+		<ListView x:Name="BeaconListView" ItemsSource="{Binding Data, Mode=TwoWay}">
+<!--			<ListView.ItemTemplate>
+				<DataTemplate>
+							<ViewCell>
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="1*"/>
+										<RowDefinition Height="1*"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*"/>
+										<ColumnDefinition Width="1*"/>
+									</Grid.ColumnDefinitions>
+									<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding TimeStamp}"/>
+									<Label Grid.Row="0" Grid.Column="1" Text="{Binding ActionRequiredFlag}" />
+									<Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+								</Grid>
+							</ViewCell>
+						</DataTemplate>
+			</ListView.ItemTemplate>-->
 		</ListView>
 
 		<Button HorizontalOptions = "FillAndExpand" Text="Add New Prompt" Command = "{Binding AddNewPromptCommand}"/>

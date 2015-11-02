@@ -18,13 +18,11 @@ namespace CaAPA.Droid
 		private readonly RangeNotifier _rangeNotifier;
 		private BeaconManager _beaconManager;
 
-		//		Region _tagRegion;
 		Region region1;
 //		Region region2;
 //		Region region3;
 //		Region region4;
 		Region _emptyRegion;
-		private ListView _list;
 		private readonly List<Beacon> _data;
 
 		public AltBeaconService()
@@ -66,8 +64,14 @@ namespace CaAPA.Droid
 
 			var iBeaconParser = new BeaconParser();
 			//	Estimote > 2013
-			iBeaconParser.SetBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24");
-			bm.BeaconParsers.Add(iBeaconParser);
+//			iBeaconParser.SetBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24");
+			iBeaconParser.SetBeaconLayout("m:0-3=4c000215,i:4-19,i:20-21,i:22-23,p:24-24");
+
+//			bm.BeaconParsers.Add(iBeaconParser);
+
+			if (bm.BeaconParsers.Count == 1) {
+				bm.BeaconParsers.Add(iBeaconParser);
+			}
 
 			_monitorNotifier.EnterRegionComplete += EnteredRegion;
 			_monitorNotifier.ExitRegionComplete += ExitedRegion;
@@ -93,9 +97,6 @@ namespace CaAPA.Droid
 
 			BeaconManagerImpl.SetMonitorNotifier(_monitorNotifier); 
 			_beaconManager.StartMonitoringBeaconsInRegion(region1);
-			//			_beaconManager.StartMonitoringBeaconsInRegion(region2);
-			//			_beaconManager.StartMonitoringBeaconsInRegion(region3);
-			//			_beaconManager.StartMonitoringBeaconsInRegion(region4);
 			_beaconManager.StartMonitoringBeaconsInRegion(_emptyRegion);
 		}
 
@@ -104,11 +105,7 @@ namespace CaAPA.Droid
 			BeaconManagerImpl.SetForegroundBetweenScanPeriod(5000); // 5000 milliseconds
 
 			BeaconManagerImpl.SetRangeNotifier(_rangeNotifier);
-			//			_beaconManager.StartRangingBeaconsInRegion(_tagRegion);
 			_beaconManager.StartRangingBeaconsInRegion(region1);
-			//			_beaconManager.StartRangingBeaconsInRegion(region2);
-			//			_beaconManager.StartRangingBeaconsInRegion(region3);
-			//			_beaconManager.StartRangingBeaconsInRegion(region4);
 			_beaconManager.StartRangingBeaconsInRegion(_emptyRegion);
 		}
 
@@ -212,7 +209,8 @@ namespace CaAPA.Droid
 				var data = new List<SharedBeacon>();
 				_data.ForEach(b =>
 					{
-						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Distance = string.Format("{0:N2}m", b.Distance)});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Prepare Dinner", Distance = string.Format("{0:N2}m", b.Distance)});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Brush Teeth", Distance = string.Format("{0:N2}m", b.Distance)});
 					});
 				handler(this, new ListChangedEventArgs(data));
 			}
