@@ -1,12 +1,17 @@
 ﻿using System;
+using SQLite.Net.Attributes;
 
 namespace CaAPA.Data
 {
 	//internal elements
 
-	public class PromptActivity
+	public class Prompt
 	{
+		[PrimaryKey, AutoIncrement]
+		public int id { get; set; }
+		[NotNull, MaxLength(128)]
 		public string ActivityName { get; set; }
+		[NotNull, MaxLength(128)]
 		public string ActivityLocation { get; set; }
 		public int NumberOfSteps { get; set; }
 
@@ -17,11 +22,11 @@ namespace CaAPA.Data
 		private int _currentStep = 0;
 		private int _steps = 0;
 
-		PromptActivity()
+		Prompt()
 		{
 		}
 
-		public PromptActivity(string activityName = "Default", string activityLocation = "Somewhere")
+		public Prompt(string activityName = "Default", string activityLocation = "Somewhere")
 		{
 			ActivityName = activityName;
 			ActivityLocation = activityLocation;

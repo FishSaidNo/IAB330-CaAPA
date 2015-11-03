@@ -7,15 +7,21 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.WindowsAzure.MobileServices;
 using GalaSoft.MvvmLight.Ioc;
 using CaAPA.Data;
 using AltBeaconOrg.BoundBeacon;
 
 namespace CaAPA.Droid
 {
-	[Activity (Label = "CaAPA", Icon = "@drawable/awareIcon2", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleInstance, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "CaAPA.Droid", Icon = "@drawable/awareIcon2", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleInstance, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IBeaconConsumer
 	{
+		public const string applicationURL = @"https://caapa.azure-mobile.net/";
+		public const string applicationKey = @"coHzRHuoqnHiolDACEHMunJRIeEJUH21";
+
+		public static MobileServiceClient client = new MobileServiceClient(applicationURL, applicationKey);
+
 		private Action<int, Result, Intent> _activityResultCallBack;
 
 		protected override void OnCreate (Bundle bundle)
@@ -25,6 +31,7 @@ namespace CaAPA.Droid
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 			//TODO show IOC vs Dependency injection
 //			SimpleIoc.Default.Register<ISqlite> (new SqliteDroid ());
+			SimpleIoc.Default.Register<ISqlite> (() => new SqliteDroid ());
 			LoadApplication (new App ());
 
 		}

@@ -13,8 +13,27 @@ namespace CaAPA.Data
 		public ICommand SaveAndQuit { get; private set; }
 		public ICommand OpenImageSelector { get; private set; }
 
+		private string activityName;
+		public string ActivityName {
+			get { return activityName; }
+			set {
+				activityName = value;
+				RaisePropertyChanged (() => ActivityName);
+			}
+		}
+
+		private string activityLocation;
+		public string ActivityLocation {
+			get { return activityLocation; }
+			set {
+				activityLocation = value;
+				RaisePropertyChanged (() => ActivityLocation);
+			}
+		}
+
 		public AddActivityViewModel(IMyNavigationService navigationService)
 		{
+			var database = new PromptDatabase();
 
 			DemoButtonCommand = new Command(() => {
 				//create new model for adding a step
@@ -23,21 +42,18 @@ namespace CaAPA.Data
 				// navigationService.NavigateTo(ViewModelLocator.SamplePagePageKey);
 			});
 
-			SaveAndQuit = new Command(() =>
-				{
-					//actually implement saving somewhere here
-					navigationService.GoBack();
-				});
+			SaveAndQuit = new Command (() => {
+				database.InsertOrUpdatePrompt(new Prompt(ActivityName, ActivityLocation));
+				navigationService.GoBack();
+			});
 
 			OpenImageSelector = new Command(() =>
-				{
-					//once i get the image selecor in it'll go here
-					//navigationService.NavigateTo();
-					navigationService.NavigateTo(ViewModelLocator.ImagePickerPageKey);
+			{
+				//once i get the image selecor in it'll go here
+				//navigationService.NavigateTo();
+				navigationService.NavigateTo(ViewModelLocator.ImagePickerPageKey);
 
-				});
-
+			});
 		}
-
 	}
 }
