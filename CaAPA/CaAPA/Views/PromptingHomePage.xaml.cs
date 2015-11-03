@@ -12,9 +12,6 @@ namespace CaAPA
 {
 	public partial class PromptingHomePage : BaseView
 	{
-		ListView _list;
-//		PromptingHomeViewModel _viewModel;
-
 		public PromptingHomePage()
 		{
 			BindingContext = App.Locator.PromptingHome;
@@ -22,30 +19,16 @@ namespace CaAPA
 			base.Init();
 			Title = "Prompting";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
-//			Content = BuildContent ();
 
-			BeaconListView.SetBinding (ListView.ItemsSourceProperty, "Data");
+			BeaconListView.VerticalOptions = LayoutOptions.FillAndExpand;
+			BeaconListView.ItemTemplate = new DataTemplate (typeof(ListItemView));
+			BeaconListView.RowHeight = 90;
+
+//			BeaconListView.SetBinding (ListView.ItemsSourceProperty, Data);
 			BeaconListView.ItemSelected += OnSelection;
 			BeaconListView.ItemTapped += OnTap;
-		}
 
-//		private View BuildContent() {
-//			_list = new ListView {
-//				VerticalOptions = LayoutOptions.FillAndExpand,
-//				ItemTemplate = new DataTemplate(typeof(ListItemView)),
-//				RowHeight = 90,
-//			};
-//
-//			_list.ItemsSource = new string[] {
-//				"Prepare Dinner"
-//			};
-//
-//			_list.SetBinding(ListView.ItemsSourceProperty, "Data");
-//			_list.ItemSelected += OnSelection;
-//			_list.ItemTapped += OnTap;
-//
-//			return _list;
-//		}
+		}
 
 		protected override void OnAppearing()
 		{

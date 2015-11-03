@@ -30,6 +30,8 @@ namespace CaAPA
 
 			beaconId.SetBinding(Label.TextProperty, "Name");
 
+			Debug.WriteLine (beaconId.Text);
+
 			var beaconIdLayout = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.End,

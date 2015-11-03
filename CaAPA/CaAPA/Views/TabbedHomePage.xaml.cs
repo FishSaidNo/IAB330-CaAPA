@@ -15,7 +15,7 @@ namespace CaAPA
 		{
 			BindingContext = App.Locator.TabbedHome;
 			InitializeComponent();
-			//base.Init();
+//			base.Init();
 			Title = "Home"; //Shouldn't be displayed.
 			BackgroundColor = Color.FromRgb(255,255,255);
 
