@@ -17,12 +17,14 @@ namespace CaAPA
 			Title = "Home"; //Shouldn't be displayed.
 			BackgroundColor = Color.FromRgb(255,255,255);
 
-			var myPrompting = new ActivityHomePage();
+			var myPrompting = new PromptingHomePage();
+			var myActivities = new ActivityHomePage ();
 			var myReminders = new RemindersHomePage();
 			var myMapping = new MappingHomePage();
 			var mySettings = new SettingsHomePage();
 
 			Children.Add(myPrompting);
+			Children.Add (myActivities);
 			Children.Add(myReminders);
 			Children.Add(myMapping);
 			Children.Add(mySettings);

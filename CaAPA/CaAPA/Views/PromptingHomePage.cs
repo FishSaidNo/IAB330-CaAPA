@@ -10,14 +10,14 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace CaAPA
 {
-	public partial class ActivityHomePage : BaseView
+	public partial class PromptingHomePage : BaseView
 	{
-		public ActivityHomePage()
+		public PromptingHomePage()
 		{
 			BindingContext = App.Locator.PromptingHome;
 			InitializeComponent();
 			base.Init();
-			Title = "Activities";
+			Title = "Prompting";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 
 			BeaconListView.VerticalOptions = LayoutOptions.FillAndExpand;
