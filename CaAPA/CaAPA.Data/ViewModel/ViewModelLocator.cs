@@ -34,6 +34,7 @@ namespace CaAPA.Data.ViewModel
 		public const string ImagePickerPageKey = "ImagePickerPage";
 		public const string AddReminderPageKey = "AddReminderPage";
 		public const string StepPageKey = "StepPage";
+		public const string ActivityHomePageKey = "ActivityHomePage";
 
 		/// <summary>
 		/// Initializes a new instance of the ViewModelLocator class.
@@ -75,6 +76,13 @@ namespace CaAPA.Data.ViewModel
 			SimpleIoc.Default.Register<PromptingHomeViewModel>(() =>
 				{
 					return new PromptingHomeViewModel(
+						SimpleIoc.Default.GetInstance<IMyNavigationService>()
+					);
+				});
+
+			SimpleIoc.Default.Register<ActivityHomeViewModel>(() =>
+				{
+					return new ActivityHomeViewModel(
 						SimpleIoc.Default.GetInstance<IMyNavigationService>()
 					);
 				});
@@ -210,7 +218,13 @@ namespace CaAPA.Data.ViewModel
 			}
 		}
 
-
+		public ActivityHomeViewModel ActivityHome
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ActivityHomeViewModel>();
+			}
+		}
 
 		public static void Cleanup()
 		{

@@ -10,9 +10,9 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace CaAPA
 {
-	public partial class PromptingHomePage : BaseView
+	public partial class ActivityHomePage : BaseView
 	{
-		public PromptingHomePage()
+		public ActivityHomePage()
 		{
 			BindingContext = App.Locator.PromptingHome;
 			InitializeComponent();

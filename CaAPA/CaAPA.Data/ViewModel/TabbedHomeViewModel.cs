@@ -11,6 +11,7 @@ namespace CaAPA.Data
 	{
 		public ICommand RemindersButtonCommand { get; private set; }
 		public ICommand PromptingButtonCommand { get; private set; }
+		public ICommand AcivitiesButtonCommand { get; private set; }
 		public ICommand MappingButtonCommand { get; private set; }
 		public ICommand SettingsButtonCommand { get; private set; }
 

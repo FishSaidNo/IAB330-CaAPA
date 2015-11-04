@@ -1,0 +1,60 @@
+﻿using System;
+using GalaSoft.MvvmLight;
+using System.Windows.Input;
+using Xamarin.Forms;
+using CaAPA.Data.ViewModel;
+using Microsoft.Practices.ServiceLocation;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
+
+namespace CaAPA.Data
+{
+	public class ActivityHomeViewModel : ViewModelBase
+	{
+		public ICommand AddNewPromptCommand { get; private set; }
+
+		public ActivityHomeViewModel(IMyNavigationService navigationService)
+		{
+			Data = new List<SharedBeacon>();
+
+			AddNewPromptCommand = new Command(() => {
+				//Do something e.g:
+				//navigationService.GoBack();
+				navigationService.NavigateTo(ViewModelLocator.AddActivityPageKey);
+			});
+		}
+
+		public event EventHandler ListChanged;
+
+		public List<SharedBeacon> Data { get; set; }
+
+		public void Init()
+		{
+			var beaconService = DependencyService.Get<IAltBeaconService>();
+
+			beaconService.ListChanged += (sender, e) => 
+			{
+				Data = e.Data;
+				OnListChanged();
+			};
+			beaconService.DataClearing += (sender, e) => 
+			{
+				Data.Clear();
+				OnListChanged();
+			};
+
+			beaconService.InitializeService();
+		}
+
+		private void OnListChanged()
+		{
+			var handler = ListChanged;
+			if(handler != null)
+			{
+				handler(this, EventArgs.Empty);
+			}
+		}
+	}
+}
+
