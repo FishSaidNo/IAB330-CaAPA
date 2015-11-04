@@ -60,7 +60,7 @@ namespace CaAPA.Data
 			return true;
 			//reassign step values here
 		}
-		public void AddStep(string Instructions, string Imguri = "")
+		public void AddStep(string Instructions, System.Uri Imguri = "")
 		{
 			_activitySteps[_steps] = new Step(Instructions, Imguri);
 			_steps++;
