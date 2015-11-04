@@ -9,6 +9,14 @@ namespace CaAPA
 {
 	public partial class ImagePickerPage : BaseView
 	{
+		private const string TextToSpeechSpeedKey = "TextToSpeechSpeed";
+		private const string TextToSpeechEnableKey = "TextToSpeechEnable";
+		private const string CloudSyncEnableKey = "CloudSyncEnable";
+		private const string BackgroundColourKey = "BackgroundColour";
+		private const string ImageUriKey = "ImageUri";		
+		
+		private System.Uri uri = null;
+		
 		public ImagePickerPage()
 		{
 			BindingContext = App.Locator.ImagePicker;
@@ -30,7 +38,13 @@ namespace CaAPA
 
 			if (gallery != null) {
 				gallery.ImageSelected += ((o, ImageSourceEventArgs) => {
-					img.Source = ImageSourceEventArgs.ImageSource;
+					uri = ImageSourceEventArgs.ImageSource;
+					img.Source = ImageSourceEventArgs.Source;
+					if(Application.Current.Properties.ContainsKey(ImageUriKey)){
+						Application.Current.Properties [ImageUriKey] = uri;
+					} else {
+						Application.Current.Properties.Add(ImageUriKey, uri);
+					}
 				});
 				gallery.GetImageFromGallery ();
 			}

@@ -8,19 +8,25 @@ namespace CaAPA.Data
 	{
 		void GetImageFromGallery();
 
-		void SetImageFromGallery(Image img);
+		void SetImageFromGallery (Image img);
+
+		ImageSource GetImageFromUri (System.Uri uri);
 
 		event EventHandler<ImageSourceEventArgs> ImageSelected;
 	}
 
 	public class ImageSourceEventArgs : EventArgs
 	{
-		public ImageSourceEventArgs(Uri imageSource)
-		{
+		public ImageSourceEventArgs(Uri imageSource, ImageSource source){
 			if (imageSource == null)
-				throw new ArgumentNullException("imagesource");
+				throw new ArgumentNullException ("imagesource");
+			if (source == null)
+				throw new ArgumentNullException ("source");
 			ImageSource = imageSource;
+			Source = source;
 		}
-		public Uri ImageSource { get; private set; }
+		public Uri ImageSource { get; private set;}
+		public ImageSource Source { get; private set;}
 	}
 }
+

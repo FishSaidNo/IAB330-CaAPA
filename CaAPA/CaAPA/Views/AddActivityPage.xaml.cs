@@ -12,7 +12,9 @@ namespace CaAPA
 	{
 		private Prompt activity;
 		private int currentStep = 1;
-
+		private const string ImageUriKey = "ImageUri";
+		
+		
 		public AddActivityPage()
 		{
 			BindingContext = App.Locator.AddActivity;
@@ -40,6 +42,9 @@ namespace CaAPA
 		}
 
 		private void OnAddStep(object sender, EventArgs e) {
+			if(Application.Current.Properties.ContainsKey(ImageUriKey)){
+				activity.AddStep (instructions.Text, (System.Uri)Application.Current.Properties[ImageUriKey]);
+			}
 			activity.AddStep (instructions.Text);
 			currentStep++;
 			step.Text = "Current Step: " + currentStep;

@@ -1,15 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.SettingsHomePage">
-	<StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
-		
-		<Label Text="Settings"
-			VerticalOptions="Center"
-			FontAttributes="Bold"
-			FontSize="Large"
-			TextColor="Black"
-		/>
-
-		<Button HorizontalOptions = "CenterAndExpand" Text="Demo Button" Command = "{Binding DemoButtonCommand}"/>
-
-	</StackLayout>
+		<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+				<StackLayout Orientation="Horizontal">
+						<Image Source="ic_hearing_black_36dp_2x.png" VerticalOptions="FillAndExpand" />
+					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+						<Label Text="Text to speech" FontSize="20" TextColor="Black"/>
+						<Switch x:Name="ttsSwitch" Toggled="TTSEnableChanged"  />
+					</StackLayout>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+						<Image Source="ic_tts_speed_black_36dp_2x.png" VerticalOptions="FillAndExpand" />
+					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+						<Label Text="Text to speech speed" FontSize="20" TextColor="Black"/>
+						<Slider x:Name="ttsslider" HorizontalOptions="FillAndExpand" Maximum="1.2" Minimum="0.25" Value="1.0" ValueChanged="OnValueSlide"/>
+					</StackLayout>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+						<Image Source="ic_cloud_black_36dp_2x.png" VerticalOptions="FillAndExpand" />
+					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+						<Label Text="Cloud Sync" FontSize="20" TextColor="Black"/>
+						<Switch x:Name="cloudSwitch" Toggled="CloudSyncChanged"  />
+					</StackLayout>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal">
+						<Image Source="ic_color_lens_black_36dp_2x.png" VerticalOptions="FillAndExpand" />
+					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+						<Label Text="Background Colour" FontSize="20" TextColor="Black"/>
+						<StackLayout Orientation="Horizontal">
+							<Label Text="Red" TextColor="Black"/>
+							<Slider x:Name="Red" HorizontalOptions="FillAndExpand" Maximum="255" Minimum="0" ValueChanged="ColourChanged"/>
+						</StackLayout>
+						<StackLayout Orientation="Horizontal">
+							<Label Text="Green" TextColor="Black"/>
+							<Slider x:Name="Green" HorizontalOptions="FillAndExpand" Maximum="255" Minimum="0" ValueChanged="ColourChanged"/>
+						</StackLayout>
+						<StackLayout Orientation="Horizontal">
+							<Label Text="Blue" TextColor="Black"/>
+							<Slider x:Name="Blue" HorizontalOptions="FillAndExpand" Maximum="255" Minimum="0" ValueChanged="ColourChanged"/>
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+			<Button x:Name="ColourPreview" Text="Colour Preview" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+		</StackLayout>
 </BaseView>

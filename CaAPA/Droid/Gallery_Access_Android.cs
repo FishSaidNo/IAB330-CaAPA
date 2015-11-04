@@ -20,64 +20,59 @@ namespace CaAPA.Droid
 
 		public event EventHandler<ImageSourceEventArgs> ImageSelected;
 
-		public void SetImageFromGallery(Image img)
-		{
-
-			MainActivity androidContext = (MainActivity)Forms.Context;
-
-			Intent intent = new Intent();
-			intent.SetType("image/*");
-			intent.SetAction(Intent.ActionGetContent);
-
-			androidContext.ConfigureActivityResultCallBack(ImageSetCallBack);
-			androidContext.StartActivityForResult(Intent.CreateChooser(intent, "Select an Image"), 0);
+		public void SetImageFromGallery(Image img){
 		}
 
-		private void ImageSetCallBack(int requestCode, Result resultCode, Intent data)
-		{
-			if (resultCode == Result.Ok)
-			{
-				if (ImageSelected != null)
-				{
-					Android.Net.Uri uri = data.Data;
-					//placeholder.Source = uri.
-				}
+
+		public ImageSource GetImageFromUri(System.Uri uri){
+			Android.Net.Uri aUri;
+			string s;
+			s = uri.ToString ();
+			s = s.Replace ("image:", "image%3A");
+			aUri = Android.Net.Uri.Parse (s);
+			ImageSource imageSource = ImageSource.FromStream (() => Forms.Context.ContentResolver.OpenInputStream (aUri));
+			ImageSelected.Invoke (this, new ImageSourceEventArgs (uri, imageSource));
+			return imageSource;
+		}
+
+		private void ResolveImage(Android.Net.Uri uri){
+			if (ImageSelected != null) {
+				System.UriBuilder URI = new System.UriBuilder();
+				URI.Path = uri.EncodedPath;
+				URI.Host = uri.Host;
+				URI.Scheme = uri.Scheme;
+				ImageSource imageSource = ImageSource.FromStream (() => Forms.Context.ContentResolver.OpenInputStream (uri));
+			
 			}
 		}
 
-		public void GetImageFromGallery()
-		{
+		public void GetImageFromGallery(){
 			MainActivity androidContext = (MainActivity)Forms.Context;
 			//Context androidContext = Forms.Context;
 
-			Intent imageIntent = new Intent();
-			imageIntent.SetType("image/*");
-			imageIntent.SetAction(Intent.ActionGetContent);
+			Intent imageIntent = new Intent ();
+			imageIntent.SetType ("image/*");
+			imageIntent.SetAction (Intent.ActionGetContent);
 
-			androidContext.ConfigureActivityResultCallBack(ImageChooserCallBack);
-			androidContext.StartActivityForResult(Intent.CreateChooser(imageIntent, "Select Image"), 0);
+			androidContext.ConfigureActivityResultCallBack (ImageChooserCallBack);
+			androidContext.StartActivityForResult (Intent.CreateChooser (imageIntent, "Select Image"), 0);
 		}
 
-		private void ImageChooserCallBack(int requestCode, Result resultCode, Intent data)
-		{
-			if (resultCode == Result.Ok)
-			{
-				if (ImageSelected != null)
-				{
+		private void ImageChooserCallBack(int requestCode, Result resultCode, Intent data){
+			if (resultCode == Result.Ok) {
+				if (ImageSelected != null) {
 					Android.Net.Uri uri = data.Data;
 					System.UriBuilder URI = new System.UriBuilder();
 					URI.Path = uri.EncodedPath;
 					URI.Host = uri.Host;
 					URI.Scheme = uri.Scheme;
-					string s = uri.Path;
-					//System.Uri url = new Uri (uri.Scheme + uri.Host + uri.Path);
-					if (ImageSelected != null)
-					{
-						//ImageSource imageSource = ImageSource.FromStream (() => Forms.Context.ContentResolver.OpenInputStream (uri));
-						ImageSelected.Invoke(this, new ImageSourceEventArgs(URI.Uri));
+					if (ImageSelected != null) {
+						ImageSource imageSource = ImageSource.FromStream (() => Forms.Context.ContentResolver.OpenInputStream (uri));
+						ImageSelected.Invoke (this, new ImageSourceEventArgs (URI.Uri, imageSource));
 					}
 				}
 			}
 		}
 	}
 }
+
