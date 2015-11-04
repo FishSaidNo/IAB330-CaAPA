@@ -10,7 +10,7 @@ namespace CaAPA
 {
 	public partial class AddActivityPage : BaseView
 	{
-		private Prompt activity;
+		private Activity activity;
 		private int currentStep = 1;
 		private const string ImageUriKey = "ImageUri";
 		
@@ -24,7 +24,7 @@ namespace CaAPA
 			Title = "Add Activity";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 
-			activity = new Prompt ("default");
+			activity = new Activity ("default");
 		}
 
 		protected override void OnAppearing()

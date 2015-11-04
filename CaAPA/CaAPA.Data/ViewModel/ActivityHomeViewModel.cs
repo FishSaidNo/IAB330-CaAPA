@@ -12,48 +12,28 @@ namespace CaAPA.Data
 {
 	public class ActivityHomeViewModel : ViewModelBase
 	{
-		public ICommand AddNewPromptCommand { get; private set; }
+		private IMyNavigationService navigationService;
+		private ObservableCollection<Activity> activityList{ get; set;}
+		public ObservableCollection<Activity> ActivityList {
+			get {return activityList;}
+			set{ activityList = value; 
+				RaisePropertyChanged (() => ActivityList);
+			}
+		}
+
+		public ICommand NewActivityCommand { get; private set; }
 
 		public ActivityHomeViewModel(IMyNavigationService navigationService)
 		{
-			Data = new List<SharedBeacon>();
+			this.navigationService = navigationService;
+			var database = new ActivityDatabase ();
 
-			AddNewPromptCommand = new Command(() => {
-				//Do something e.g:
-				//navigationService.GoBack();
-				navigationService.NavigateTo(ViewModelLocator.AddActivityPageKey);
-			});
+			NewActivityCommand = new Command (() => this.navigationService.NavigateTo (ViewModelLocator.AddActivityPageKey));
 		}
 
-		public event EventHandler ListChanged;
-
-		public List<SharedBeacon> Data { get; set; }
-
-		public void Init()
-		{
-			var beaconService = DependencyService.Get<IAltBeaconService>();
-
-			beaconService.ListChanged += (sender, e) => 
-			{
-				Data = e.Data;
-				OnListChanged();
-			};
-			beaconService.DataClearing += (sender, e) => 
-			{
-				Data.Clear();
-				OnListChanged();
-			};
-
-			beaconService.InitializeService();
-		}
-
-		private void OnListChanged()
-		{
-			var handler = ListChanged;
-			if(handler != null)
-			{
-				handler(this, EventArgs.Empty);
-			}
+		public async void OnAppearing(){
+			var database = new ActivityDatabase ();
+			ActivityList = new ObservableCollection<Activity> (await database.GetAll ());
 		}
 	}
 }

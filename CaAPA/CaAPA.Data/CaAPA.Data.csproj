@@ -58,8 +58,9 @@
     <Compile Include="Models\Step.cs" />
     <Compile Include="Interfaces\IGallery.cs" />
     <Compile Include="Database\PromptDatabase.cs" />
-    <Compile Include="Models\Prompt.cs" />
     <Compile Include="ViewModel\ActivityHomeViewModel.cs" />
+    <Compile Include="Models\Activity.cs" />
+    <Compile Include="Database\ActivityDatabase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

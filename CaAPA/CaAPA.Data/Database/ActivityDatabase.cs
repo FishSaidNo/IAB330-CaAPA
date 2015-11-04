@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CaAPA.Data
 {
-	public class PromptDatabase
+	public class ActivityDatabase
 	{
 		public const string applicationURL = @"https://caapa.azure-mobile.net/";
 		public const string applicationKey = @"coHzRHuoqnHiolDACEHMunJRIeEJUH21";
@@ -18,7 +18,7 @@ namespace CaAPA.Data
 
 		SQLiteConnection database;
 
-		public PromptDatabase ()
+		public ActivityDatabase ()
 		{
 			database = DependencyService.Get<ISqlite> ().GetConnection ();
 			//TODO show IOC vs Dependency injection
@@ -40,14 +40,14 @@ namespace CaAPA.Data
 
 		}
 
-		public async Task<int> InsertOrUpdatePrompt(Activity prompt){
+		public async Task<int> InsertOrUpdateActivity(Activity activity){
 			//			return database.Table<Note> ().Where (x => x.NoteId == note.NoteId).Any () 
 			//				? database.Update (note) : database.Insert (note);
-			var lookup = await MobileService.GetTable<Activity> ().LookupAsync (prompt.id);
+			var lookup = await MobileService.GetTable<Activity> ().LookupAsync (activity.id);
 			if (lookup != null) {
-				await MobileService.GetTable<Activity> ().InsertAsync (prompt);
+				await MobileService.GetTable<Activity> ().InsertAsync (activity);
 			} else {
-				await MobileService.GetTable<Activity> ().UpdateAsync (prompt);
+				await MobileService.GetTable<Activity> ().UpdateAsync (activity);
 			}
 			return 1;
 
@@ -68,12 +68,12 @@ namespace CaAPA.Data
 			//return database.Query<Note> ("Select * from Note where NoteDetail like *?*", searchTerm).ToList();
 		}
 
-//		public List<IGrouping<DayOfWeek,Prompt>> CountPromptsByWeekDay(){
-//			var value = 
-//				from prompt in database.Table<Prompt> ()
-//				group prompt by prompt.TimeStamp.DayOfWeek;
-//			return value.ToList ();
-//		}
+		//		public List<IGrouping<DayOfWeek,Prompt>> CountPromptsByWeekDay(){
+		//			var value = 
+		//				from prompt in database.Table<Prompt> ()
+		//				group prompt by prompt.TimeStamp.DayOfWeek;
+		//			return value.ToList ();
+		//		}
 
 	}
 }

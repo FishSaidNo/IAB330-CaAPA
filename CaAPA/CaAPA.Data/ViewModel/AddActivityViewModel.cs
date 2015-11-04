@@ -43,7 +43,7 @@ namespace CaAPA.Data
 			});
 
 			SaveAndQuit = new Command (() => {
-				database.InsertOrUpdatePrompt(new Prompt(ActivityName, ActivityLocation));
+				database.InsertOrUpdatePrompt(new Activity(ActivityName, ActivityLocation));
 				navigationService.GoBack();
 			});
 

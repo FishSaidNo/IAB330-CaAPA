@@ -5,7 +5,7 @@ namespace CaAPA.Data
 {
 	//internal elements
 
-	public class Prompt
+	public class Activity
 	{
 		[PrimaryKey, AutoIncrement]
 		public int id { get; set; }
@@ -22,11 +22,11 @@ namespace CaAPA.Data
 		private int _currentStep = 0;
 		private int _steps = 0;
 
-		Prompt()
+		Activity()
 		{
 		}
 
-		public Prompt(string activityName = "Default", string activityLocation = "Somewhere")
+		public Activity(string activityName = "Default", string activityLocation = "Somewhere")
 		{
 			ActivityName = activityName;
 			ActivityLocation = activityLocation;

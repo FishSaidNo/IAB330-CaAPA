@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.ActivityHomePage">
-	<StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
-
-		<Label Text="Activities"
-			VerticalOptions="Center"
-			FontAttributes="Bold"
-			FontSize="Large"
-			TextColor="Black"
-		/>
-
-		<ListView x:Name="BeaconListView" ItemsSource="{Binding Data, Mode=TwoWay}" ItemTapped="OnItemSelected">
-<!--			<ListView.ItemTemplate>
-				<DataTemplate>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="NoteTaker1.NoteListPage">
+	<StackLayout>
+		<ScrollView>
+			<StackLayout>
+				<Label Text="Activities"
+					VerticalOptions="Center"
+					FontAttributes="Bold"
+					FontSize="Large"
+					TextColor="Black"
+				/>
+				<ListView x:Name="ActivityListView" ItemsSource="{Binding ActivityList, Mode=TwoWay}">
+					<ListView.ItemTemplate>
+						<DataTemplate>
 							<ViewCell>
 								<Grid>
 									<Grid.RowDefinitions>
@@ -22,16 +24,14 @@
 										<ColumnDefinition Width="2*"/>
 										<ColumnDefinition Width="1*"/>
 									</Grid.ColumnDefinitions>
-									<Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding TimeStamp}"/>
-									<Label Grid.Row="0" Grid.Column="1" Text="{Binding ActionRequiredFlag}" />
-									<Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+									<Label Grid.Row="0" Grid.Column="0" Text="{Binding activityName}"/>
+									<Label Grid.Row="0" Grid.Column="0" Text="{Binding activityLocation}"/>
 								</Grid>
 							</ViewCell>
 						</DataTemplate>
-			</ListView.ItemTemplate>-->
-		</ListView>
-
-		<Button HorizontalOptions = "FillAndExpand" Text="Add New Prompt" Command = "{Binding AddNewActivityCommand}"/>
-
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+		</ScrollView>
 	</StackLayout>
 </BaseView>
