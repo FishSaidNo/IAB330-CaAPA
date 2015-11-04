@@ -159,7 +159,7 @@ namespace CaAPA.Droid
 						}
 					}
 
-					((Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() =>
+					((Android.App.Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() =>
 						{
 							foreach(var beacon in newBeacons)
 							{
@@ -177,7 +177,7 @@ namespace CaAPA.Droid
 
 		private async Task ClearData()
 		{
-			((Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() =>
+			((Android.App.Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() =>
 				{
 					_data.Clear();
 					OnDataClearing();
@@ -195,7 +195,7 @@ namespace CaAPA.Droid
 
 		private void UpdateList()
 		{
-			((Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() => 
+			((Android.App.Activity)Xamarin.Forms.Forms.Context).RunOnUiThread(() => 
 				{
 					OnListChanged();
 				});
