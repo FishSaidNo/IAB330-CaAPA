@@ -9,7 +9,7 @@
 			TextColor="Black"
 		/>
 
-		<ListView x:Name="BeaconListView" ItemsSource="{Binding Data, Mode=TwoWay}">
+		<ListView x:Name="BeaconListView" ItemsSource="{Binding Data, Mode=TwoWay}" ItemTapped="OnItemSelected">
 <!--			<ListView.ItemTemplate>
 				<DataTemplate>
 							<ViewCell>

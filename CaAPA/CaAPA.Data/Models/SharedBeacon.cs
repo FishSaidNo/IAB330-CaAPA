@@ -12,7 +12,9 @@ namespace CaAPA.Data
 		public string UUID { get; set; }
 		[NotNull, MaxLength(128)]
 		public string Name {get; set; }
+		[NotNull, MaxLength(128)]
 		public string Description {get; set; }
+		[NotNull, MaxLength(128)]
 		public string Distance { get; set; }
 
 		public SharedBeacon() {

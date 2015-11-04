@@ -25,8 +25,8 @@ namespace CaAPA
 			BeaconListView.RowHeight = 90;
 
 //			BeaconListView.SetBinding (ListView.ItemsSourceProperty, Data);
-			BeaconListView.ItemSelected += OnSelection;
-			BeaconListView.ItemTapped += OnTap;
+//			BeaconListView.ItemSelected += OnSelection;
+//			BeaconListView.ItemTapped += OnTap;
 
 		}
 
@@ -46,18 +46,28 @@ namespace CaAPA
 
 		void OnTap (object sender, ItemTappedEventArgs e)
 		{
-			DisplayAlert ("Item Tapped", e.Item.ToString (), "Ok");
+//			DisplayAlert ("Item Tapped", e.Item.ToString (), "Ok");
 		}
 
-		void OnSelection (object sender, SelectedItemChangedEventArgs e)
+		async void OnSelection (object sender, SelectedItemChangedEventArgs e)
 		{
 			if (e.SelectedItem == null) {
 				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
 			}
-			DisplayAlert ("Item Selected", e.SelectedItem.ToString (), "Ok");
+//			DisplayAlert ("Item Selected", e.SelectedItem.ToString (), "Ok");
 			//comment out if you want to keep selections
 			ListView lst = (ListView)sender;
 			lst.SelectedItem = null;
+		}
+
+		public void OnItemSelected(object sender, ItemTappedEventArgs args) {
+			var item = args.Item as SharedBeacon;
+			if (item == null) {
+				return;
+			}
+			Navigation.PushAsync (new SamplePage());
+			BeaconListView.SelectedItem = null;
+
 		}
 	}
 }

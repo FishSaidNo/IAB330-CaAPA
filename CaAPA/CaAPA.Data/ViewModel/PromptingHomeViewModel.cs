@@ -6,6 +6,7 @@ using CaAPA.Data.ViewModel;
 using Microsoft.Practices.ServiceLocation;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace CaAPA.Data
 {
