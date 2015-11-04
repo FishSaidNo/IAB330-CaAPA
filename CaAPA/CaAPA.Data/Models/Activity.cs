@@ -11,7 +11,6 @@ namespace CaAPA.Data
 		public int id { get; set; }
 		[NotNull, MaxLength(128)]
 		public string ActivityName { get; set; }
-		[NotNull, MaxLength(128)]
 		public string ActivityLocation { get; set; }
 		public int NumberOfSteps { get; set; }
 

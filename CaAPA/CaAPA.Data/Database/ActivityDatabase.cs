@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace CaAPA.Data
 {
@@ -53,7 +54,7 @@ namespace CaAPA.Data
 
 		}
 
-		public Activity GetPrompt(int key){
+		public Activity GetActivity(int key){
 			return database.Table<Activity> ().First (t => t.id == key); 
 		}
 

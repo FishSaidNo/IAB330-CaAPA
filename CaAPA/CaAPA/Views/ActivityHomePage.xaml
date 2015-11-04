@@ -29,8 +29,9 @@
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
-				<Button Text = "Add New Activity" Command = "{Binding NewActivityCommand}" />
+
 			</StackLayout>
 		</ScrollView>
+		<Button Text = "Add New Activity" Command = "{Binding NewActivityCommand}" />
 	</StackLayout>
 </BaseView>

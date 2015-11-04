@@ -38,7 +38,7 @@ namespace CaAPA.Droid
 
 				//Set the tab icons
 				tabPrompting.SetIcon(Resource.Drawable.ic_description_white_24dp);
-				tabActivities.SetIcon(Resource.Drawable.ic_description_white_24dp);
+				tabActivities.SetIcon(Resource.Drawable.ic_local_activity_white_24dp);
 				tabReminders.SetIcon(Resource.Drawable.ic_schedule_white_24dp);
 				tabMapping.SetIcon(Resource.Drawable.ic_map_white_24dp);
 				tabSettings.SetIcon(Resource.Drawable.ic_settings_white_24dp);

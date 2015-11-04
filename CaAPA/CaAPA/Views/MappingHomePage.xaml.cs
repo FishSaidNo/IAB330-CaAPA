@@ -22,7 +22,7 @@ namespace CaAPA
 			{
                 Url = System.IO.Path.Combine(rootPath, "mappingPage.html")
 			};
-			GC.Collect ();
+//			GC.Collect ();
 
 		}
 

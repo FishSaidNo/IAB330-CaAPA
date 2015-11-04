@@ -25,9 +25,13 @@ namespace CaAPA
 
 		protected override void OnAppearing ()
 		{
-			base.OnAppearing ();
-			var vm = ServiceLocator.Current.GetInstance<ActivityHomeViewModel> ();
-			vm.OnAppearing ();
+//			base.OnAppearing ();
+//			var vm = ServiceLocator.Current.GetInstance<ActivityHomeViewModel> ();
+//			vm.OnAppearing ();
+
+			//Add this to all pages to avoid annoying icon next to the back button
+			var noIcon = "transparent1x1.png";
+			NavigationPage.SetTitleIcon(this, noIcon);
 		}
 	}
 }

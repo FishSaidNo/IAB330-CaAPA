@@ -26,7 +26,7 @@ namespace CaAPA.Data
 		public ActivityHomeViewModel(IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			var database = new ActivityDatabase ();
+//			var database = new ActivityDatabase ();
 
 			NewActivityCommand = new Command (() => this.navigationService.NavigateTo (ViewModelLocator.AddActivityPageKey));
 		}

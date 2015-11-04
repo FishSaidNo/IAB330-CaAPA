@@ -159,6 +159,7 @@
     <AndroidResource Include="Resources\drawable\ic_settings_system_daydream_black_24dp.png" />
     <AndroidResource Include="Resources\drawable\ic_settings_white_24dp.png" />
     <AndroidResource Include="Resources\drawable\ic_volume_up_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_local_activity_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\monkeyicon.png" />
