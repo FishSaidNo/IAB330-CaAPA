@@ -10,11 +10,14 @@ namespace CaAPA
 {
 	public partial class AddActivityPage : BaseView
 	{
+		private const string NumberOfActivitiesKey = "NumberOfActivities";
+		private const string BaseActivtiesKey = "BaseActivtiesKey";
+
 		private Activities activity;
 		private int currentStep = 1;
 		private const string ImageUriKey = "ImageUri";
 		
-		
+
 		public AddActivityPage()
 		{
 			BindingContext = App.Locator.AddActivity;
@@ -25,6 +28,12 @@ namespace CaAPA
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 
 			activity = new Activities ("default");
+
+			if (!Application.Current.Properties.ContainsKey (NumberOfActivitiesKey)) {
+				Application.Current.Properties.Add (NumberOfActivitiesKey, 0);
+			}
+
+
 		}
 
 		protected override void OnAppearing()
@@ -60,10 +69,18 @@ namespace CaAPA
 			}
 		}
 
+		private void OnSaveAndQuit(object sender, EventArgs e) {
+			if(!Application.Current.Properties.ContainsKey(BaseActivtiesKey + Application.Current.Properties[NumberOfActivitiesKey]) ){
+				Application.Current.Properties.Add (BaseActivtiesKey, activity);
+			}
+		}
+
 
 //		private void OnSelectImage() {
 //			Navigation.PushModalAsync (new ImagePickerPage());
 //		}
 	}
+
+
 }
 

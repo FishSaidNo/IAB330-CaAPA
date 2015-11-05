@@ -14,6 +14,6 @@ x:Class="CaAPA.AddActivityPage">
     
     <Button x:Name="selectImage" Text="Select an Image" Command="{Binding OpenImageSelector}"/>
     <Button x:Name="addStep" Text="Add Step" Clicked="OnAddStep"/>
-    <Button x:Name="saveAndQuit" Text="Save and Quit" Command="{Binding SaveAndQuit}"/>
+    <Button x:Name="saveAndQuit" Text="Save and Quit" Clicked="OnSaveAndQuit"/>
   </StackLayout>
 </BaseView>
