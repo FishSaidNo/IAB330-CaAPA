@@ -18,14 +18,34 @@ namespace CaAPA
 			base.Init();
 			Title = "Mapping";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
-			//Browser.Source = "http://google.com.au";
-			var rootPath = "file:///android_asset/";
+
+
+			var rootPath = "file:///android_asset/"; //Root path for the webview contents
 			Browser.Source = new UrlWebViewSource
 			{
                 Url = System.IO.Path.Combine(rootPath, "mappingPage.html")
 			};
 
-		}
+			//Force our Browser to open links in the device's external browser
+			Browser.Navigating += (s, e) =>
+			{
+				if (e.Url.StartsWith("http"))
+				{
+					try
+					{
+						var uri = new Uri(e.Url);
+						Device.OpenUri(uri);
+					}
+					catch (Exception)
+					{
+						//
+					}
+
+					e.Cancel = true;
+				}
+			};
+
+		} //End constructor
 
 		protected override void OnAppearing()
 		{
@@ -34,36 +54,5 @@ namespace CaAPA
 			NavigationPage.SetTitleIcon(this, noIcon);
 		}
 
-		private void backClicked(object sender, EventArgs e)
-		{
-			//check to see if there is anywhere to go back to
-			if (Browser.CanGoBack)
-			{
-				Browser.GoBack();
-			}
-			else
-			{ //if not, leave the view
-				//Navigation.PopAsync();
-	
-			}
-		}
-
-		private void forwardClicked(object sender, EventArgs e)
-		{
-			if (Browser.CanGoForward)
-			{
-				Browser.GoForward();
-			}
-		}
-
-		//void webOnNavigating(object sender, WebNavigatingEventArgs e)
-		//{
-		//	LoadingLabel.IsVisible = true;
-		//}
-
-		//void webOnEndNavigating(object sender, WebNavigatedEventArgs e)
-		//{
-		//	LoadingLabel.IsVisible = false;
-		//}
-	}
-}
+	} //End class
+} //End namespace

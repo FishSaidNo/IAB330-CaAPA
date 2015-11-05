@@ -1,26 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.MappingHomePage">
-	<!--<StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
-
-		<Label Text="Mapping"
-			VerticalOptions="Center"
-			FontAttributes="Bold"
-			FontSize="Large"
-			TextColor="Black"
-		/>
-
-
-
-		<Button HorizontalOptions = "CenterAndExpand" Text="Demo Button" Command = "{Binding DemoButtonCommand}"/>
-
-	</StackLayout>-->
 
 	<StackLayout>
-		<StackLayout Orientation="Horizontal" Padding="10,10" BackgroundColor="Black">
-			<Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="backClicked" />
-			<Label Text="Navigation" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-			<Button Text="Forward" HorizontalOptions="End" Clicked="forwardClicked" />
-		</StackLayout>
 		<Label x:Name="LoadingLabel"
 			Text="Loading..."
 			HorizontalOptions="Center"
@@ -32,4 +13,5 @@
 			HeightRequest="1000" 
 		/>
 	</StackLayout>
+	
 </BaseView>
