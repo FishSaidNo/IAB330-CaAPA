@@ -1,0 +1,2 @@
+E:\uni\330 Mobile Application Development\acap\IAB330-CaAPA-jonathan-30-10\CaAPA\caapaService\obj\Debug\caapaService.csproj.App.config
+E:\uni\330 Mobile Application Development\acap\IAB330-CaAPA-jonathan-30-10\CaAPA\caapaService\obj\Debug\caapaService.csprojResolveAssemblyReference.cache

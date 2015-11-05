@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Heyns.ZumoClient</name>
+    </assembly>
+    <members>
+        <member name="T:Heyns.ZumoClient.MobileServiceClient">
+            <summary>
+            The Client used to interact with the Windows Azure MobileServices Api
+            </summary>
+        </member>
+        <member name="M:Heyns.ZumoClient.MobileServiceClient.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            The constructor that requires the base Windows Azure endpoint for MobileServices and the Api Key 
+            </summary>
+            <param name="mobileServicesUri"></param>
+            <param name="apiKey"></param>
+            <param name="masterKey"></param>
+        </member>
+        <member name="M:Heyns.ZumoClient.MobileServiceClient.Authenticate(System.String)">
+            <summary>
+            Authenticate this user against MobileServices
+            </summary>
+            <param name="authenticationToken"></param>
+            <returns>MobileServicesUser</returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.MobileServiceClient.GetTable``1">
+            <summary>
+            The main entry point into the Api that allows for fluent style calls
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Heyns.ZumoClient.MobileServiceClient.QueryTable``1">
+            <summary>
+            Allows for the data store to be queried using Filter, Top, Skip, OrderBy and Select
+            Call the execute method to execute the query against the data store
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTable`1.Get``1(``0)">
+            <summary>
+            Gets by id and returns the deserialized type back
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTable`1.Get">
+            <summary>
+            Get all the specified items in the entities table
+            </summary>
+            <returns><![CDATA[IEnumerable<T>]]></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTable`1.Insert(`0)">
+            <summary>
+            Will insert the item into the Windows Azure MobileServices table for this entity
+            </summary>
+            <param name="entity"></param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTable`1.Update``1(``0,`0)">
+            <summary>
+            Will update the item into the Windows Azure MobileServices table for this entity
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+            <param name="entity"></param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTable`1.Delete``1(``0)">
+            <summary>
+            Deletes the Entity with this id from the DB
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTableQuery`1.Top(System.Int32)">
+            <summary>
+            Take the top number of records
+            </summary>
+            <param name="top"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTableQuery`1.Skip(System.Int32)">
+            <summary>
+            Skip a number of records and take from there on
+            </summary>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTableQuery`1.OrderBy(System.String)">
+            <summary>
+            Allows for ordering of the records retrieved
+            </summary>
+            <param name="orderby"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTableQuery`1.Filter(System.String)">
+            <summary>
+            Filtering of the records in the data store
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.IMobileServicesTableQuery`1.Select(System.String)">
+            <summary>
+            Projects each element of a sequence into a new form.
+            </summary>
+            <param name="select"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Heyns.ZumoClient.MobileServicesUser">
+            <summary>
+            Represents and authenticated Windows Azure Mobile Services authenticated user.
+            </summary>
+        </member>
+        <member name="T:Heyns.ZumoClient.Table`1">
+            <summary>
+            Wraps all operations in a fluent style Api
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Get``1(``0)">
+            <summary>
+            Gets by id and returns the deserialized type back
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Get">
+            <summary>
+            Get all the specified items in the entities table
+            </summary>
+            <returns><![CDATA[IEnumerable<T>]]></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Get(System.String)">
+            <summary>
+            Internal method used to execute OData styled queries against the data store
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Insert(`0)">
+            <summary>
+            Will insert the item into the Windows Azure MobileServices table for this entity
+            </summary>
+            <param name="entity"></param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Update``1(``0,`0)">
+            <summary>
+            Will update the item into the Windows Azure MobileServices table for this entity
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+            <param name="entity"></param>
+            <returns>T</returns>
+        </member>
+        <member name="M:Heyns.ZumoClient.Table`1.Delete``1(``0)">
+            <summary>
+            Deletes the Entity with this id from the DB
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="id"></param>
+        </member>
+    </members>
+</doc>

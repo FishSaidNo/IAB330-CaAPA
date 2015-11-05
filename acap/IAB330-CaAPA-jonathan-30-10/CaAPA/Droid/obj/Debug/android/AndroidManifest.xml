@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.caapa.caapa" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="22" />
+  <application android:label="CaAPA" android:icon="@drawable/awareicon2" android:name="mono.android.app.Application" android:debuggable="true">
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/awareicon2" android:label="CaAPA.Droid" android:launchMode="singleInstance" android:name="md5fdb39c7b7c9c9171462e4643f0f42466.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="Web Authenticator" android:name="md588920fb9403ed228b036d6919cddd329.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="md588920fb9403ed228b036d6919cddd329.WebAuthenticatorActivity" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.caapa.caapa.mono.MonoRuntimeProvider.__mono_init__" />
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.caapa.caapa" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="org.altbeacon.beacon.startup.StartupBroadcastReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+        <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+      </intent-filter>
+    </receiver>
+    <service android:name="org.altbeacon.beacon.service.BeaconService" android:enabled="true" android:exported="false" android:isolatedProcess="false" android:label="beacon" />
+    <service android:name="org.altbeacon.beacon.BeaconIntentProcessor" android:enabled="true" android:exported="false" />
+  </application>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+  <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" />
+  <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+  <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_LOGS" />
+  <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+</manifest>
