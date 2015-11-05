@@ -23,49 +23,50 @@ namespace CaAPA.Data
 		{
 			database = DependencyService.Get<ISqlite> ().GetConnection ();
 			//TODO show IOC vs Dependency injection
-			//			database = SimpleIoc.Default.GetInstance<ISqlite> ().GetConnection ();
-			if (database.TableMappings.All(t => t.MappedType.Name != typeof(Activity).Name)) {
-				database.CreateTable<Activity> ();
+//			database = SimpleIoc.Default.GetInstance<ISqlite> ().GetConnection ();
+			if (database.TableMappings.All(t => t.MappedType.Name != typeof(Activities).Name)) {
+				database.CreateTable<Activities> ();
 				database.Commit ();
 			}
+
 		}
 
-		public async Task<List<Activity>> GetAll(){
-			//			var items = database.Table<Note> ().ToList<Note>();
-			//
-			//			return items;
+		public async Task<List<Activities>> GetAll(){
+//			var items = database.Table<Activities> ().ToList<Activities>();
+//			Debug.WriteLine (items);
+//			return items;
 
 			// OR
-			var x = await MobileService.GetTable<Activity> ().ToListAsync ();
+			var x = await MobileService.GetTable<Activities> ().ToListAsync ();
 			return x;
 
 		}
 
-		public async Task<int> InsertOrUpdateActivity(Activity activity){
+		public async Task<int> InsertOrUpdateActivity(Activities activity){
 			//			return database.Table<Note> ().Where (x => x.NoteId == note.NoteId).Any () 
 			//				? database.Update (note) : database.Insert (note);
-			var lookup = await MobileService.GetTable<Activity> ().LookupAsync (activity.id);
+			var lookup = await MobileService.GetTable<Activities> ().LookupAsync (activity.id);
 			if (lookup != null) {
-				await MobileService.GetTable<Activity> ().InsertAsync (activity);
+				await MobileService.GetTable<Activities> ().InsertAsync (activity);
 			} else {
-				await MobileService.GetTable<Activity> ().UpdateAsync (activity);
+				await MobileService.GetTable<Activities> ().UpdateAsync (activity);
 			}
 			return 1;
 
 		}
 
-		public Activity GetActivity(int key){
-			return database.Table<Activity> ().First (t => t.id == key); 
+		public Activities GetActivity(int key){
+			return database.Table<Activities> ().First (t => t.id == key); 
 		}
 
-		public List<Activity> SearchActivity(string searchTerm){
-			return database.Table<Activity> ().Where (x => x.ActivityName.Contains (searchTerm)).ToList ();
+		public List<Activities> SearchActivity(string searchTerm){
+			return database.Table<Activities> ().Where (x => x.ActivityName.Contains (searchTerm)).ToList ();
 			//return database.Query<Note> ("Select * from Note where titleText like *?*", searchTerm).ToList();
 
 		}
 
-		public List<Activity> SearchLocation(string searchTerm){
-			return database.Table<Activity> ().Where (x => x.ActivityLocation.Contains (searchTerm)).ToList ();
+		public List<Activities> SearchLocation(string searchTerm){
+			return database.Table<Activities> ().Where (x => x.ActivityLocation.Contains (searchTerm)).ToList ();
 			//return database.Query<Note> ("Select * from Note where NoteDetail like *?*", searchTerm).ToList();
 		}
 

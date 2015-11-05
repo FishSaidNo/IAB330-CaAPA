@@ -13,8 +13,8 @@ namespace CaAPA.Data
 	public class ActivityHomeViewModel : ViewModelBase
 	{
 		private IMyNavigationService navigationService;
-		private ObservableCollection<Activity> activityList{ get; set;}
-		public ObservableCollection<Activity> ActivityList {
+		private ObservableCollection<Activities> activityList{ get; set;}
+		public ObservableCollection<Activities> ActivityList {
 			get {return activityList;}
 			set{ activityList = value; 
 				RaisePropertyChanged (() => ActivityList);
@@ -33,7 +33,7 @@ namespace CaAPA.Data
 
 		public async void OnAppearing(){
 			var database = new ActivityDatabase ();
-			ActivityList = new ObservableCollection<Activity> (await database.GetAll ());
+			ActivityList = new ObservableCollection<Activities> (await database.GetAll ());
 		}
 	}
 }

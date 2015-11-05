@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.ActivityHomePage">
-	<StackLayout>
+	<StackLayout Padding = "10,20,10,30" Orientation="Vertical">
 		<ScrollView>
 			<StackLayout>
 				<Label Text="Activities"
@@ -13,23 +13,15 @@
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
-								<Grid>
-									<Grid.RowDefinitions>
-										<RowDefinition Height="1*"/>
-										<RowDefinition Height="1*"/>
-									</Grid.RowDefinitions>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="2*"/>
-										<ColumnDefinition Width="1*"/>
-									</Grid.ColumnDefinitions>
-									<Label Grid.Row="0" Grid.Column="0" Text="{Binding activityName}"/>
-									<Label Grid.Row="0" Grid.Column="0" Text="{Binding activityLocation}"/>
-								</Grid>
-							</ViewCell>
+						         <StackLayout Padding="15,0">
+						             <Label Text="{Binding activityName}" TextColor="Black"/>
+						             <Label Text="{Binding activityLocation}" TextColor="Black"/>
+						             <Label Text="{Binding instructions}" TextColor="Black"/>
+						         </StackLayout>
+								</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
-
 			</StackLayout>
 		</ScrollView>
 		<Button Text = "Add New Activity" Command = "{Binding NewActivityCommand}" />

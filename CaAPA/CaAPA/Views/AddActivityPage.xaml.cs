@@ -10,7 +10,7 @@ namespace CaAPA
 {
 	public partial class AddActivityPage : BaseView
 	{
-		private Activity activity;
+		private Activities activity;
 		private int currentStep = 1;
 		private const string ImageUriKey = "ImageUri";
 		
@@ -24,7 +24,7 @@ namespace CaAPA
 			Title = "Add Activity";
 			BackgroundColor = Color.FromRgb(255, 255, 255);
 
-			activity = new Activity ("default");
+			activity = new Activities ("default");
 		}
 
 		protected override void OnAppearing()
@@ -47,7 +47,7 @@ namespace CaAPA
 			}
 			activity.AddStep (instructions.Text);
 			currentStep++;
-			step.Text = "Current Step: " + currentStep;
+			Steps.Text = "Current Step: " + currentStep;
 			instructions.Text = "";
 		}
 

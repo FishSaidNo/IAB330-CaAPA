@@ -18,7 +18,7 @@ namespace CaAPA.Data
 			get { return activityName; }
 			set {
 				activityName = value;
-				RaisePropertyChanged (() => ActivityName);
+//				RaisePropertyChanged (() => ActivityName);
 			}
 		}
 
@@ -27,13 +27,14 @@ namespace CaAPA.Data
 			get { return activityLocation; }
 			set {
 				activityLocation = value;
-				RaisePropertyChanged (() => ActivityLocation);
+//				RaisePropertyChanged (() => ActivityLocation);
 			}
 		}
+			
 
 		public AddActivityViewModel(IMyNavigationService navigationService)
 		{
-			var database = new PromptDatabase();
+			var database = new ActivityDatabase();
 
 			DemoButtonCommand = new Command(() => {
 				//create new model for adding a step
@@ -43,7 +44,7 @@ namespace CaAPA.Data
 			});
 
 			SaveAndQuit = new Command (() => {
-				database.InsertOrUpdatePrompt(new Activity(ActivityName, ActivityLocation));
+				database.InsertOrUpdateActivity(new Activities(ActivityName, ActivityLocation, 1, false));
 				navigationService.GoBack();
 			});
 

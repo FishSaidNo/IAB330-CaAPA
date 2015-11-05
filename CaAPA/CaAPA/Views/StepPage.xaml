@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CaAPA.StepPage">
   <StackLayout>
-    <Label x:Name="activityNameLabel" Text="Activity Name" HorizontalOptions="CenterAndExpand"/>
-    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-    <Label x:Name="instructions" Text="Instructions" HorizontalOptions="FillAndExpand" />
+    <Label x:Name="activityNameLabel" Text="Activity Name" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+    <Label x:Name="activityLocationLabel" Text="Activity Location" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    <Label x:Name="instructions" Text="Instructions" HorizontalOptions="FillAndExpand" TextColor="Black"/>
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="1*"/>
@@ -13,8 +14,8 @@
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*" />
       </Grid.ColumnDefinitions>
-      <Button Grid.Row="0" Grid.Column="0" Text="Back" Clicked="gobackstep"/>
-      <Button Grid.Row="0" Grid.Column="1" Text="Next" Clicked="goforwardstep"/>
+      <Button Grid.Row="0" Grid.Column="0" Text="Back" Clicked="goBackStep"/>
+      <Button Grid.Row="0" Grid.Column="1" Text="Next" Clicked="goForwardStep"/>
     </Grid>
   </StackLayout>
   

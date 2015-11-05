@@ -18,7 +18,7 @@ namespace CaAPA.Droid
 
 		public SQLiteConnection GetConnection ()
 		{
-			const string sqliteFilename = "database.db3";
+			const string sqliteFilename = "caapa_db.sqlite";
 			var documentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
 			var path = Path.Combine (documentsPath, sqliteFilename);
 			var plat = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();

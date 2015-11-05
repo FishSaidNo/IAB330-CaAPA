@@ -209,8 +209,11 @@ namespace CaAPA.Droid
 				var data = new List<SharedBeacon>();
 				_data.ForEach(b =>
 					{
-						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Prepare Dinner", Distance = string.Format("{0:N2}m", b.Distance)});
-						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Brush Teeth", Distance = string.Format("{0:N2}m", b.Distance)});
+//						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Prepare Dinner", Distance = string.Format("{0:N2}m", b.Distance)});
+//						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Brush Teeth", Distance = string.Format("{0:N2}m", b.Distance)});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Prepare Dinner", Distance = "Kitchen"});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Wash Dishes", Distance = "Kitchen"});
+						data.Add(new SharedBeacon { Id = b.Id1.ToString(), Name="Feed Cats", Distance = "Kitchen"});
 					});
 				handler(this, new ListChangedEventArgs(data));
 			}

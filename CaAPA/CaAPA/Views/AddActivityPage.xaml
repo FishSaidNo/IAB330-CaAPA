@@ -3,12 +3,12 @@
 x:Class="CaAPA.AddActivityPage">
   <StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
     <Label Text="Activity Name" TextColor="Black"/>
-    <Entry x:Name="activityName"  Placeholder="Activity" TextColor="White" BackgroundColor="Silver" TextChanged="OnNameChanged"/>
+    <Entry x:Name="activityName"  Text="{Binding ActivityName}" Placeholder="Activity" TextColor="White" BackgroundColor="Silver" TextChanged="OnNameChanged" />
     
     <Label Text="Activity Location" TextColor="Black"/>
-    <Entry x:Name="activityLocation" Placeholder="Location" TextColor="White" BackgroundColor="Silver" TextChanged="OnLocationChanged"/>
+    <Entry x:Name="activityLocation" Text="{Binding ActivityLocation}" Placeholder="Location" TextColor="White" BackgroundColor="Silver" TextChanged="OnLocationChanged"/>
     
-    <Label x:Name="step" Text="Current Step: 1" TextColor="Black"/>
+    <Label x:Name="Steps" Text="1" TextColor="Black"/>
     <Label Text="Step Instructions" TextColor="Black"/>
     <Editor x:Name="instructions" VerticalOptions="FillAndExpand" BackgroundColor="Silver" TextChanged="OnEditorChanged"/>
     

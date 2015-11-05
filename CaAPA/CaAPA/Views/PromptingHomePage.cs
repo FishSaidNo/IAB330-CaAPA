@@ -44,28 +44,12 @@ namespace CaAPA
 
 		}
 
-		void OnTap (object sender, ItemTappedEventArgs e)
-		{
-//			DisplayAlert ("Item Tapped", e.Item.ToString (), "Ok");
-		}
-
-		async void OnSelection (object sender, SelectedItemChangedEventArgs e)
-		{
-			if (e.SelectedItem == null) {
-				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
-			}
-//			DisplayAlert ("Item Selected", e.SelectedItem.ToString (), "Ok");
-			//comment out if you want to keep selections
-			ListView lst = (ListView)sender;
-			lst.SelectedItem = null;
-		}
-
 		public void OnItemSelected(object sender, ItemTappedEventArgs args) {
 			var item = args.Item as SharedBeacon;
 			if (item == null) {
 				return;
 			}
-			Navigation.PushAsync (new SamplePage());
+			Navigation.PushAsync (new StepPage());
 			BeaconListView.SelectedItem = null;
 
 		}

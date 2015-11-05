@@ -12,17 +12,9 @@ namespace CaAPA.Data
 {
 	public class PromptingHomeViewModel : ViewModelBase
 	{
-		public ICommand AddNewPromptCommand { get; private set; }
-
 		public PromptingHomeViewModel(IMyNavigationService navigationService)
 		{
 			Data = new List<SharedBeacon>();
-
-			AddNewPromptCommand = new Command(() => {
-				//Do something e.g:
-				//navigationService.GoBack();
-				navigationService.NavigateTo(ViewModelLocator.AddActivityPageKey);
-			});
 		}
 
 		public event EventHandler ListChanged;

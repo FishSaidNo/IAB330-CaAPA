@@ -1,18 +1,22 @@
 ﻿using System;
 using SQLite.Net.Attributes;
+using Newtonsoft.Json;
 
 namespace CaAPA.Data
 {
 	//internal elements
 
-	public class Activity
+	public class Activities
 	{
 		[PrimaryKey, AutoIncrement]
 		public int id { get; set; }
-		[NotNull, MaxLength(128)]
+//		[NotNull, MaxLength(128)]
 		public string ActivityName { get; set; }
 		public string ActivityLocation { get; set; }
 		public int NumberOfSteps { get; set; }
+
+		[JsonProperty(PropertyName = "complete")]
+		public bool Complete { get; set; }
 
 		public Step Step = new Step("blah");
 
@@ -21,14 +25,16 @@ namespace CaAPA.Data
 		private int _currentStep = 0;
 		private int _steps = 0;
 
-		Activity()
+		Activities()
 		{
 		}
 
-		public Activity(string activityName = "Default", string activityLocation = "Somewhere")
+		public Activities(string activityName = "Default", string activityLocation = "Somewhere", int numberOfSteps = 1, bool complete = false)
 		{
 			ActivityName = activityName;
 			ActivityLocation = activityLocation;
+			NumberOfSteps = numberOfSteps;
+			Complete = complete;
 			_activitySteps = new Step[25];
 		}
 
