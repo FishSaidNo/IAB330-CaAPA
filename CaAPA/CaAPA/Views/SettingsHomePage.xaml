@@ -40,6 +40,6 @@
 						</StackLayout>
 					</StackLayout>
 				</StackLayout>
-			<Button x:Name="ColourPreview" Text="Colour Preview" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+			<Button x:Name="ColourPreview" Text="TTS Test" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Clicked="TTSDemo" />
 		</StackLayout>
 </BaseView>

@@ -67,6 +67,13 @@ namespace CaAPA
 				GC.Collect ();
 			}
 		}
+
+		private void TTSDemo(object sender, EventArgs e) {
+			if ((bool)Application.Current.Properties[TextToSpeechEnableKey]) {
+				var speak = DependencyService.Get<ITextToSpeech> ();
+				speak.speak ("The Quick Brown Fox Jumps Over The Lazy Dog", (float)Application.Current.Properties [TextToSpeechSpeedKey]);
+			}
+		}
 		
 		
 		protected override void OnAppearing()

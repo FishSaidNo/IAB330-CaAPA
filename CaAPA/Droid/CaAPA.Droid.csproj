@@ -152,6 +152,7 @@
     <Compile Include="Gallery_Access_Android.cs" />
     <Compile Include="Adapters\ActivityAdapter.cs" />
     <Compile Include="Items\Activities.cs" />
+    <Compile Include="TextToSpeech_Android.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -193,6 +194,23 @@
     <AndroidResource Include="Resources\drawable\ic_settings_white_24dp.png" />
     <AndroidResource Include="Resources\drawable\ic_volume_up_black_24dp.png" />
     <AndroidResource Include="Resources\drawable\ic_local_activity_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bluetooth_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bluetooth_disabled_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cloud_black_36dp_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cloud_off_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cloud_queue_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_color_lens_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_color_lens_black_36dp_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_description_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_hearing_black_36dp_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_map_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_schedule_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_system_daydream_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tts_speed_black_36dp_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_white_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_white_36dp_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\monkeyicon.png" />

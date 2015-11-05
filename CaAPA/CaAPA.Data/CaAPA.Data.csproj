@@ -61,6 +61,7 @@
     <Compile Include="ViewModel\ActivityHomeViewModel.cs" />
     <Compile Include="Database\ActivityDatabase.cs" />
     <Compile Include="Models\Activities.cs" />
+    <Compile Include="Interfaces\ITextToSpeech.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
