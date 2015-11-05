@@ -23,6 +23,8 @@ namespace CaAPA
 			var rootPath = "file:///android_asset/"; //Root path for the webview contents
 			Browser.Source = new UrlWebViewSource
 			{
+				//All the mapping functionality is provided via javascript/html/css
+				//Located in the Android assets directory
                 Url = System.IO.Path.Combine(rootPath, "mappingPage.html")
 			};
 

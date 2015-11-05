@@ -1,13 +1,14 @@
-body {
+body, html {
   margin: 0px;
   padding: 0px;
+  height: 100%;
   background-color: black;
   font-family: Chalkduster;
 }
 #map-canvas {
 	min-height:100%;
 	min-width: 100%;
-	height: 100vh;
+	height: 100%;
 	display: inline-block;
 }
 #mainContainer {
@@ -17,19 +18,19 @@ body {
 	width: 100%;
 	min-height: 100%;
 	min-width: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
 }
 #controls {
 	background-color: black;
 	margin: 0px;
 	padding: 5px;
-
+	height: auto;
 }
 #btnStart {
 
 }
 #btnEnd {
 	float: right;
-}
-.btnSelected {
-	
 }

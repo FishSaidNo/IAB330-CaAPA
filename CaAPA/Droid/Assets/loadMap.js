@@ -77,7 +77,10 @@ function initialize() {
 				$('#btnStart').removeClass('active btn-success').addClass('btn-warning'); //Visually deactivate button	
 				
 				//Create temp marker if both locations have not been set
-				if (!coordStart || !coordEnd) {
+				if (!coordEnd) {
+					//Delete temp marker
+					if (markerStart) { markerStart.setMap(null); }
+					if (markerEnd) { markerEnd.setMap(null); }
 					markerStart = new google.maps.Marker({
 						title: 'Starting Location',
 						map: map,
@@ -93,7 +96,10 @@ function initialize() {
 				$('#btnEnd').removeClass('active btn-success').addClass('btn-warning');
 				
 				//Create temp marker if both locations have not been set
-				if (!coordStart || !coordEnd) {
+				if (!coordStart) {
+					//Delete temp markers
+					if (markerStart) { markerStart.setMap(null); }
+					if (markerEnd) { markerEnd.setMap(null); }
 					markerStart = new google.maps.Marker({
 						title: 'Starting Location',
 						map: map,
