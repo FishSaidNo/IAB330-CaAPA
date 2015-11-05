@@ -211,6 +211,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_white_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_volume_up_white_36dp_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_local_activity_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\monkeyicon.png" />

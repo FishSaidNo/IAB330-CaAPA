@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
+using System.Reflection;
 
 namespace CaAPA
 {
 	public partial class StepPage : BaseView
 	{
+		private const string TextToSpeechSpeedKey = "TextToSpeechSpeed";
+		private const string TextToSpeechEnableKey = "TextToSpeechEnable";
+		private const string CloudSyncEnableKey = "CloudSyncEnable";
+		private const string BackgroundColourKey = "BackgroundColour";
+
 		public string[] steps;
 		public int counter = 0;
 
@@ -46,6 +52,10 @@ namespace CaAPA
 //			activityNameLabel.Text = activity.ActivityName;
 //			activityLocationLabel.Text = activity.ActivityLocation;
 			instructions.Text = steps [0];
+			if ((bool)Application.Current.Properties[TextToSpeechEnableKey]) {
+				var speak = DependencyService.Get<ITextToSpeech> ();
+				speak.speak (instructions.Text, (float)Application.Current.Properties [TextToSpeechSpeedKey]);
+			}
 		}
 		private void goForwardStep(object sender, EventArgs e)
 		{
@@ -55,7 +65,15 @@ namespace CaAPA
 			counter += 1;
 			if (counter < steps.Length) {
 				instructions.Text = steps [counter];
+
+				if ((bool)Application.Current.Properties[TextToSpeechEnableKey]) {
+					var speak = DependencyService.Get<ITextToSpeech> ();
+					speak.speak (instructions.Text, (float)Application.Current.Properties [TextToSpeechSpeedKey]);
+				}
 			}
+
+
+
 //			activityNameLabel.Text = activity.ActivityName;
 			//			instructions.Text =
 		}
@@ -65,11 +83,21 @@ namespace CaAPA
 			//if step is first return us to main view we launched from
 			//load previous step in same view
 			//activity.decrement step
-
 			counter -= 1;
+
+			if (counter < 0) {
+				counter++;
+			}
+
 			instructions.Text = steps [counter];
-//			activityNameLabel.Text = activity.ActivityName;
+			//			activityNameLabel.Text = activity.ActivityName;
 			//			instructions.Text =
+
+			if ((bool)Application.Current.Properties[TextToSpeechEnableKey]) {
+				var speak = DependencyService.Get<ITextToSpeech> ();
+				speak.speak (instructions.Text, (float)Application.Current.Properties [TextToSpeechSpeedKey]);
+			}
+
 		}
 	}
 }
