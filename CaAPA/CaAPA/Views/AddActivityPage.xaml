@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="CaAPA.AddActivityPage">
+  <StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
+    <Label Text="Activity Name" TextColor="Black"/>
+    <Entry x:Name="activityName"  Text="{Binding ActivityName}" Placeholder="Activity" TextColor="White" BackgroundColor="Silver" TextChanged="OnNameChanged" />
+    
+    <Label Text="Activity Location" TextColor="Black"/>
+    <Entry x:Name="activityLocation" Text="{Binding ActivityLocation}" Placeholder="Location" TextColor="White" BackgroundColor="Silver" TextChanged="OnLocationChanged"/>
+    
+    <Label x:Name="Steps" Text="Current Step: 1" TextColor="Black"/>
+    <Label Text="Step Instructions" TextColor="Black"/>
+    <Editor x:Name="instructions" VerticalOptions="FillAndExpand" BackgroundColor="Silver" TextChanged="OnEditorChanged"/>
+    
+    <Button x:Name="selectImage" Text="Select an Image" Command="{Binding OpenImageSelector}"/>
+    <Button x:Name="addStep" Text="Add Step" Clicked="OnAddStep"/>
+    <Button x:Name="saveAndQuit" Text="Save and Quit" Command="{Binding SaveAndQuit}"/>
+<!--    <Button x:Name="saveAndQuit" Text="Save and Quit" Clicked="OnSaveAndQuit"/>-->
+  </StackLayout>
+</BaseView>

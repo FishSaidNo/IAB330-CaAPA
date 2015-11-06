@@ -17,9 +17,34 @@ namespace CaAPA
 				return _locator ?? (_locator = new ViewModelLocator());
 			}
 		}
+		
+		private const string TextToSpeechSpeedKey = "TextToSpeechSpeed";
+		private const string TextToSpeechEnableKey = "TextToSpeechEnable";
+		private const string CloudSyncEnableKey = "CloudSyncEnable";
+		private const string BackgroundColourKey = "BackgroundColour";
 
 		public App ()
 		{
+			
+			Color temp = Color.White;
+			//tts toggle
+			if (!Application.Current.Properties.ContainsKey (TextToSpeechEnableKey)) {
+				Application.Current.Properties.Add (TextToSpeechEnableKey, false);
+			}
+			//tts speed setting
+			if (!Application.Current.Properties.ContainsKey (TextToSpeechSpeedKey)) {
+				Application.Current.Properties.Add (TextToSpeechSpeedKey, 1.0f);
+			} else
+				Application.Current.Properties [TextToSpeechSpeedKey] = 1.0f;
+			//cloud sync key
+			if(!Application.Current.Properties.ContainsKey(CloudSyncEnableKey)){
+				Application.Current.Properties.Add (CloudSyncEnableKey, true);
+			}
+			//background colour key
+			if (!Application.Current.Properties.ContainsKey (BackgroundColourKey)) {
+				Application.Current.Properties.Add(BackgroundColourKey, temp);
+			}
+			
 			
 			// The root page of your application
 			MainPage = GetMainPage();
@@ -33,11 +58,15 @@ namespace CaAPA
 			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
 			nav.Configure (ViewModelLocator.NoteListPageKey, typeof(NoteListPage));
 			nav.Configure(ViewModelLocator.RemindersHomePageKey, typeof(RemindersHomePage));
-            nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(PromptingHomePage));
+			nav.Configure(ViewModelLocator.PromptingHomePageKey, typeof(ActivityHomePage));
 			nav.Configure(ViewModelLocator.MappingHomePageKey, typeof(MappingHomePage));
 			nav.Configure(ViewModelLocator.SettingsHomePageKey, typeof(SettingsHomePage));
 			nav.Configure(ViewModelLocator.TabbedHomePageKey, typeof(TabbedHomePage));
 			nav.Configure(ViewModelLocator.SamplePagePageKey, typeof(SamplePage));
+			nav.Configure(ViewModelLocator.AddActivityPageKey, typeof(AddActivityPage));
+			nav.Configure(ViewModelLocator.ImagePickerPageKey, typeof(ImagePickerPage));
+			nav.Configure(ViewModelLocator.AddReminderPageKey, typeof(AddReminderPage));
+			nav.Configure(ViewModelLocator.StepPageKey, typeof(StepPage));
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 			var navPage = new NavigationPage(new TabbedHomePage());

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CaAPA.ActivityHomePage">
+	<StackLayout Padding = "10,20,10,30" Orientation="Vertical">
+		<ScrollView>
+			<StackLayout>
+				<Label Text="Activities"
+					VerticalOptions="Center"
+					FontAttributes="Bold"
+					FontSize="Large"
+					TextColor="Black"
+				/>
+
+				<Label Text="Cook Dinner" TextColor="Black"/>
+						             <Label Text="Feed Cats" TextColor="Black"/>
+						             <Label Text="Wash Dishes" TextColor="Black"/>
+<!--				<ListView x:Name="ActivityListView" >
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+						         <StackLayout Padding="15,0">
+						             <Label Text="Cook Dinner" TextColor="Black"/>
+						             <Label Text="Feed Cats" TextColor="Black"/>
+						             <Label Text="Wash Dishes" TextColor="Black"/>
+						         </StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>-->
+			</StackLayout>
+		</ScrollView>
+		<Button Text = "Add New Activity" Command = "{Binding NewActivityCommand}" />
+	</StackLayout>
+</BaseView>

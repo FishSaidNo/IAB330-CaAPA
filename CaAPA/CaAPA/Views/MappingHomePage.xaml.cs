@@ -5,8 +5,6 @@ using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
 
-using Xamarin.Forms;
-
 namespace CaAPA
 {
 	public partial class MappingHomePage : BaseView
@@ -27,6 +25,7 @@ namespace CaAPA
 				//Located in the Android assets directory
                 Url = System.IO.Path.Combine(rootPath, "mappingPage.html")
 			};
+//			GC.Collect ();
 
 			//Force our Browser to open links in the device's external browser
 			Browser.Navigating += (s, e) =>

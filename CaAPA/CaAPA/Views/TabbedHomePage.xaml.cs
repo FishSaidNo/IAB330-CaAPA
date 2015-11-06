@@ -5,8 +5,6 @@ using Xamarin.Forms;
 using CaAPA.Data.ViewModel;
 using CaAPA.Data;
 
-using Xamarin.Forms;
-
 namespace CaAPA
 {
 	public partial class TabbedHomePage : TabbedPage
@@ -15,16 +13,18 @@ namespace CaAPA
 		{
 			BindingContext = App.Locator.TabbedHome;
 			InitializeComponent();
-			//base.Init();
+//			base.Init();
 			Title = "Home"; //Shouldn't be displayed.
 			BackgroundColor = Color.FromRgb(255,255,255);
 
 			var myPrompting = new PromptingHomePage();
+			var myActivities = new ActivityHomePage ();
 			var myReminders = new RemindersHomePage();
 			var myMapping = new MappingHomePage();
 			var mySettings = new SettingsHomePage();
 
 			Children.Add(myPrompting);
+			Children.Add (myActivities);
 			Children.Add(myReminders);
 			Children.Add(myMapping);
 			Children.Add(mySettings);
