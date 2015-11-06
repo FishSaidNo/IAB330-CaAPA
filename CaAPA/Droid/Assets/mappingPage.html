@@ -1,11 +1,58 @@
+﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>Mapping</title>
-	<link href="default.css" rel="stylesheet">
+<head lang="en">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+	<title>Mapping</title>
+	<link href="default.css" rel="stylesheet"> <!--Our css for the map page-->
+	<link href="bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap core CSS -->    
 	<script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyA2bnp5WoLy8EM_wfHwkyWiZOXhgIosdaE"></script><!--The Google Maps JS API functionality-->
-	<script src="loadMap.js"></script>
+	<script src="jquery-2.1.4.min.js"></script> <!--jQuery library-->
+	<script src="bootstrap.min.js"></script> <!--Bootstrap library-->
+	<script src="loadMap.js"></script> <!--Our js code to actually provide our mapping functionality-->
 </head>
 <body>
-	<div id="map-canvas"></div>
+	<div class="container-fluid" id="mainContainer">
+		<div id="controls">
+			<button id="btnStart" class="btn btn-warning" type="button">Set Start Point</button>
+			<button id="btnEnd" class="btn btn-warning" type="button">Set Destination</button>
+		</div>
+		<div id="map-canvas"></div>
+	</div>
+	
+	<!--Event handlers for the buttons-->
+	<script type="text/javascript">
+		$('#btnStart').on('click', function() {
+			if ( $(this).hasClass('active') ) {
+				startActive = false;
+				$(this).removeClass('active btn-success').addClass('btn-warning');
+			}
+			else {
+				//Insure other button is not also selected
+				endActive = false;
+				$('#btnEnd').removeClass('active btn-success').addClass('btn-warning');
+				//Then activate this selector button
+				startActive = true;
+				$(this).addClass('active btn-success').removeClass('btn-warning')
+			}
+		});
+		$('#btnEnd').on('click', function() {
+			if ( $(this).hasClass('active') ) {
+				endActive = false;
+				$(this).removeClass('active btn-success').addClass('btn-warning');
+			}
+			else {
+				//Insure other button is not also selected
+				startActive = false;
+				$('#btnStart').removeClass('active btn-success').addClass('btn-warning');
+				//Then activate this selector button
+				endActive = true;
+				$(this).addClass('active btn-success').removeClass('btn-warning')
+			}
+		});	
+	</script>
 </body>
 </html>
