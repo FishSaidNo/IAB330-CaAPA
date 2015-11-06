@@ -37,11 +37,14 @@ namespace CaAPA
 			var noIcon = "transparent1x1.png";
 			NavigationPage.SetTitleIcon(this, noIcon);
 
+			
+
 //			var vm = ServiceLocator.Current.GetInstance<ActivityHomeViewModel> ();
 //			vm.Init ();
 //			vm.ListChanged += (sender, e) => {
 //				ActivityListView.ItemsSource = vm.Data;
 //			};
+
 		}
 
 

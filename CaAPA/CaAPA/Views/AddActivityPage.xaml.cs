@@ -72,7 +72,10 @@ namespace CaAPA
 		private void OnSaveAndQuit(object sender, EventArgs e) {
 			if(!Application.Current.Properties.ContainsKey(BaseActivtiesKey + Application.Current.Properties[NumberOfActivitiesKey]) ){
 				Application.Current.Properties.Add (BaseActivtiesKey, activity);
+//				Navigation.PushAsync (new ActivityHomePage());
 			}
+
+
 		}
 
 

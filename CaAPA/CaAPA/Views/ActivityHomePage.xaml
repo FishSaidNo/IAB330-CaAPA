@@ -9,19 +9,23 @@
 					FontSize="Large"
 					TextColor="Black"
 				/>
-				<ListView x:Name="ActivityListView" ItemsSource="{Binding ActivityList, Mode=TwoWay}">
+
+				<Label Text="Cook Dinner" TextColor="Black"/>
+						             <Label Text="Feed Cats" TextColor="Black"/>
+						             <Label Text="Wash Dishes" TextColor="Black"/>
+<!--				<ListView x:Name="ActivityListView" >
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
 						         <StackLayout Padding="15,0">
-						             <Label Text="{Binding activityName}" TextColor="Black"/>
-						             <Label Text="{Binding activityLocation}" TextColor="Black"/>
-						             <Label Text="{Binding instructions}" TextColor="Black"/>
+						             <Label Text="Cook Dinner" TextColor="Black"/>
+						             <Label Text="Feed Cats" TextColor="Black"/>
+						             <Label Text="Wash Dishes" TextColor="Black"/>
 						         </StackLayout>
-								</ViewCell>
+							</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>
-				</ListView>
+				</ListView>-->
 			</StackLayout>
 		</ScrollView>
 		<Button Text = "Add New Activity" Command = "{Binding NewActivityCommand}" />

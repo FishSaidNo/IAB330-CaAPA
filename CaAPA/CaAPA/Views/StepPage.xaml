@@ -5,7 +5,7 @@
   <StackLayout Padding = "10,20,10,30" Orientation="Vertical" >
     <Label x:Name="activityNameLabel" Text="Prepare Dinner" HorizontalOptions="CenterAndExpand" TextColor="Black" Font="Bold"/>
     <Label x:Name="activityLocationLabel" Text="Kitchen" HorizontalOptions="CenterAndExpand" TextColor="Black" Font="Bold"/>
-    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+<!--    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
     <Label x:Name="instructions" Text="Instructions" HorizontalOptions="FillAndExpand" TextColor="Black"/>
     <Grid>
       <Grid.RowDefinitions>

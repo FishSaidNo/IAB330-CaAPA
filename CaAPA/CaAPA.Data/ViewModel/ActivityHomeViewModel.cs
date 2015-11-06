@@ -7,17 +7,21 @@ using Microsoft.Practices.ServiceLocation;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using System.Dynamic;
 
 namespace CaAPA.Data
 {
 	public class ActivityHomeViewModel : ViewModelBase
 	{
+		private const string NumberOfActivitiesKey = "NumberOfActivities";
+		private const string BaseActivtiesKey = "BaseActivtiesKey";
+
 		private IMyNavigationService navigationService;
 		private ObservableCollection<Activities> activityList{ get; set;}
 		public ObservableCollection<Activities> ActivityList {
 			get {return activityList;}
 			set{ activityList = value; 
-				RaisePropertyChanged (() => ActivityList);
+//				RaisePropertyChanged (() => ActivityList);
 			}
 		}
 
@@ -33,8 +37,12 @@ namespace CaAPA.Data
 
 		public async void OnAppearing(){
 			var database = new ActivityDatabase ();
-			ActivityList = new ObservableCollection<Activities> (await database.GetAll ());
+//			ActivityList = new ObservableCollection<Activities> (await database.GetAll ());
+
+			ActivityList.Add (new Activities ("Cook Dinner", "Kitchen", 1, false));
 		}
+
+
 	}
 }
 
